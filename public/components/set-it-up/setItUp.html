@@ -1,0 +1,60 @@
+
+
+<div id="categories">
+	<div>
+		<form>
+			<input type="text" placeholder="Name Your Category" ng-model="categoryName" class="category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)">
+			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
+		</form>
+	</div>
+
+	<input type="checkbox" ng-model="raffleCheckBox" ng-click="raffle()">Raffle Randomizer
+	<input type="checkbox" ng-model="infinityCheckBox" ng-click="infinity()">Infinity Randomizer
+
+	<br />
+		<div ng-repeat="categories in category track by $index" class="categories" >
+		<div ng-click="selectCategory($index, categories.name, categories._id, categories.items)">{{categories.name}}
+			
+		</div>
+		<button class="delete" ng-click="deleteCategory($index)">X</button>
+
+</div>
+<br />
+<!-- need to figure out how the divs will hide and show, how it will be with the below buttons clicked. I think it will flow better if the landing page held the buttons and we were directed to different views.  Each view could still use the same functions and database easily.-->
+
+<!-- <button>The Infinity Randomizer</button>
+<button>The Raffle Randomizer</button> -->
+
+<div id="infinity-items">
+	<h3>Infinity Items</h3>
+	<h2>{{categoryNameInfinity}}</h2>
+	<button ng-click="categoriesShow()">Categories</button>
+	
+	<div>
+		<form>
+			<input type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input type="button" value="Add An Item">
+
+			<div class="items" ng-repeat="item in categoryItems track by $index">{{item.itemName}}
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<div id="raffle-items">
+	<h3>Raffle Items</h3>
+	<h2>{{categoryNameRaffle}}</h2>
+	<button ng-click="categoriesShow()">Categories</button>
+	
+	<div>
+		<form>
+			<input type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input type="button" value="Add An Item">
+
+			<div class="items" ng-repeat="item in categoryItems track by $index">{{item.itemName}}
+			</div>
+		</form>
+	</div>
+
+</div>
