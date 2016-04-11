@@ -1,1 +1,22 @@
-raffle-go.html
+<div id="raffle-items">
+	<h3>Raffle Items</h3>
+	<h2>{{categoryNameInfinity}}</h2>
+	{{finalRandomItem.itemName}}
+	<p class="stays">Right now the result of clicking "GO" stays listed above until I refresh the page.  I will probably have to make html templates for this functionality and have their own routes. Also, where the result sits needs to be in a div so that the page does not jump and skip around.</p>
+	<button ng-click="categoriesShow()">Categories</button>
+	<div>
+		<form>
+			<input type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
+		</form>
+
+		<table>
+			<tr ng-repeat="item in categoryItems track by $index">
+				<td class="item_table_column">{{item.itemName}}</td>
+				<td>
+					<button class="delete" ng-click="deleteItem($index)">X</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

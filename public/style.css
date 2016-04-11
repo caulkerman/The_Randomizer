@@ -4,6 +4,10 @@ html body {
 	font-family: sans-serif, serif;
 }
 
+form {
+	margin-bottom: 10px;
+}
+
 h2 {
 	color: gray;
 }
@@ -16,32 +20,27 @@ button {
 	margin: 0px 5px 0px 5px;
 }
 
-
-
-/*tr.categories {
-	background-color: green;
+table {
 	width: 400px;
-	margin: 10px 0 10px 0;
-
-	height: 35px;
-	padding: 4px;
-	color: #fff;
-	font-size: 1.3em;
-}*/
-
-.categories {
-	background-color: green;
-	max-width: 400px;
-	margin: 10px 0 10px 0;
-
-	height: 35px;
-	padding: 4px;
-	color: #fff;
-	font-size: 1.3em;
 }
 
-td.table_cell_delete {
-	background-color: #fff;
+/*td {
+	padding-bottom: 2px;
+}*/
+
+.category_table_column {
+	background-color: green;
+	width: 100%;
+	color: #fff;
+	font-size: 1.3em;
+	padding-left: 10px;
+}
+
+.item_table_column {
+	background-color: red;
+	width: 100%;
+	color: #fff;
+	font-size: 1.3em;
 }
 
 .category-input {
@@ -51,27 +50,40 @@ td.table_cell_delete {
 	border: #0099ff 1px solid;
 }
 
-form {
-	margin-bottom: 10px;
-}
-
 .delete {
 	float: right;
 	color: red;
-	height: 18px;
+	height: 30px;
+	width: 30px;
 	margin-top: 3px;
 }
 
-#infinity-items {
+
+/*#infinity-items {
 	display: none;
+}*/
+
+/*#raffle-items {
+	display: none;
+}*/
+
+.stays {
+	color: orange;
 }
 
-#raffle-items {
-	display: none;
+.go_button {
+	height: 30px;
+	background-color: orange;
 }
 
-table {
-	min-width: 850px;
-	/*border-collapse:separate;*/ 
-	border-spacing:7px;
+.random_item_result_div {
+	min-height: 70px;
+	/*width: 351px;*/
+	margin-left: 2px;
+	/*border: solid brown 1px;*/
+}
+
+h2#random_item_result {
+	color: brown;
+	font-size
 }

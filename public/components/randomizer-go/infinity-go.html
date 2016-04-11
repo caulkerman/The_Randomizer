@@ -1,1 +1,26 @@
-infinity-go.html
+<div id="infinity-items">
+	<h3>Infinity Randomizer</h3>
+	<h2>{{categoryNameInfinity}}</h2>
+	
+	<button ng-click="categoriesShow()">Categories</button>
+	
+	<div>
+		<form>
+			<input type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
+		</form>
+		<button class="go_button" ng-click="infinity_randomize()">GO!</button>
+		<div class="random_item_result_div">
+			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
+		</div>
+
+		<table>
+			<tr ng-repeat="item in items track by $index">
+				<td class="item_table_column">{{item.itemName}}</td>
+				<td>
+					<button class="delete" ng-click="deleteItem($index)">X</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

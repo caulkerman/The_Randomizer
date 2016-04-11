@@ -4,6 +4,8 @@ app.service("setItUpService", ["$http", "$q", function($http, $q) {
 //makeACategoryObject function creates the properties for the categoryObject object.
 var categoryObject = {};
 
+
+
 this.makeACategoryObject = function(categoryName) {
 	categoryObject.name = categoryName;
 	categoryObject.items = [];
@@ -41,6 +43,7 @@ this.getCategories = function() {
 };
 
 
+
 this.addAnItem = function(itemName, id) {
 	console.warn("In service, the item ", itemName);
 	var deferred = $q.defer();
@@ -55,19 +58,33 @@ this.addAnItem = function(itemName, id) {
 	return deferred.promise;
 };
 
+
+
 this.deleteCategory = function(id) {
 	var deferred = $q.defer();
+	
 	$http({
 		method: "DELETE",
 		url: '/api/subject-items-Lists/' + id,
 	}).then(function(response) {
 		console.log("deleted inside the service", response);
+		
+
 		deferred.resolve(response);
 	})
 	return deferred.promise;
 };
 
 
+var storedCategory;
+this.storeCategoryInService = function(category) {
+	storedCategory = category;
+	// console.log("storedCategory in service ", storedCategory)
+}
+
+this.sendStoredCategoryInService = function() {
+	return storedCategory;
+}
 
 
 
@@ -77,4 +94,4 @@ this.deleteCategory = function(id) {
 
 
 
-}])
+}]);
