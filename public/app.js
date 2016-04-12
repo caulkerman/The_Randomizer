@@ -3,15 +3,15 @@ var app = angular.module("the_randomizer", ["ui.router"])
 	app.config(function($stateProvider, $urlRouterProvider) {
   
   // For any unmatched url, redirect to /landing-page
-  $urlRouterProvider.otherwise("/set-it-up-and-play");
+  $urlRouterProvider.otherwise("/landing-page");
   
   $stateProvider
     
-    // .state('landing-page', {
-    //   url: "/landing-page",
-    //   templateUrl: "components/landing-page/landing-page.html",
-    //   controller: "setItUpController"
-    // })
+    .state('landing-page', {
+      url: "/landing-page",
+      templateUrl: "components/landing-page/landing-page.html",
+      controller: "landingPageController"
+    })
     
     .state('setItUp', {
       url: "/set-it-up-and-play",

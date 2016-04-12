@@ -6,15 +6,15 @@
 	<button ng-click="categoriesShow()">Categories</button>
 	<div>
 		<form>
-			<input type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input class="shadow" type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
 			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
 		</form>
 
 		<table>
-			<tr ng-repeat="item in categoryItems track by $index">
+			<tr ng-repeat="item in items track by $index">
 				<td class="item_table_column">{{item.itemName}}</td>
 				<td>
-					<button class="delete" ng-click="deleteItem($index)">X</button>
+					<button class="delete shadow" ng-click="deleteItem($index)">X</button>
 				</td>
 			</tr>
 		</table>

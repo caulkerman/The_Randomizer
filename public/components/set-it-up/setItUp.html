@@ -1,21 +1,21 @@
-
-hello?
 <div id="categories">
 	<div>
 		<form>
-			<input type="text" placeholder="Name Your Category" ng-model="categoryName" class="category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)">
+			<input type="text" placeholder="Name Your Category" ng-model="categoryName" class=" shadow category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)">
 			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
 		</form>
 	</div>
 
-	<input type="checkbox" ng-model="raffleCheckBox" ng-click="raffle()">Raffle Randomizer
-	<input type="checkbox" ng-model="infinityCheckBox" ng-click="infinity()">Infinity Randomizer
+	<!-- <input type="checkbox" ng-model="raffleCheckBox" ng-click="raffle()">Raffle Randomizer
+	<input type="checkbox" ng-model="infinityCheckBox" ng-click="infinity()">Infinity Randomizer -->
+	<button class="shadow" ng-model="raffleButton" ng-click="raffle()">Raffle Randomizer</button>
+	<button class="shadow" ng-model="infinityButton" ng-click="infinity()">Infinity Randomizer</button>
 	<br />
 
 	<table ng-repeat="category in categories track by $index">
 		<tr>
 			<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
-			<td><button class="delete" ng-click="deleteCategory($index)">X</td>
+			<td><button class="delete shadow" ng-click="deleteCategory($index)">X</td>
 		</tr>
 	</table>
 </div>

@@ -13,7 +13,7 @@ h2 {
 }
 
 input {
-	margin: 5px;
+	margin: 3px;
 }
 
 button {
@@ -22,11 +22,9 @@ button {
 
 table {
 	width: 400px;
+	border-collapse: separate;
+	border-spacing: 2px 3px;
 }
-
-/*td {
-	padding-bottom: 2px;
-}*/
 
 .category_table_column {
 	background-color: green;
@@ -34,6 +32,7 @@ table {
 	color: #fff;
 	font-size: 1.3em;
 	padding-left: 10px;
+	border-radius: 4px;
 }
 
 .item_table_column {
@@ -41,13 +40,28 @@ table {
 	width: 100%;
 	color: #fff;
 	font-size: 1.3em;
+	border-radius: 4px;
+
+}
+
+.shadow {
+	-moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
 }
 
 .category-input {
-	width: 350px;
-	height: 25px;
-	border-radius: 5px;
-	border: #0099ff 1px solid;
+	width: 335px;
+	height: 30px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;    
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+    
 }
 
 .delete {
@@ -57,15 +71,6 @@ table {
 	width: 30px;
 	margin-top: 3px;
 }
-
-
-/*#infinity-items {
-	display: none;
-}*/
-
-/*#raffle-items {
-	display: none;
-}*/
 
 .stays {
 	color: orange;
@@ -78,9 +83,10 @@ table {
 
 .random_item_result_div {
 	min-height: 70px;
-	/*width: 351px;*/
+	width: 351px;
 	margin-left: 2px;
-	/*border: solid brown 1px;*/
+	border: solid brown 1px;
+	border-radius: 4px;
 }
 
 h2#random_item_result {

@@ -3,40 +3,28 @@
 	function setItUpControllerCB($scope, $log, setItUpService, $timeout, $state, $stateParams) {
 
 		/////////ADD CONTROLLER JAVASCRIPT BELOW////////
-
-//The purpose of the landing page is to introduce the user to the app for 4 seconds, almost like the app is loading. 
-		// $scope.landing_page_timeout = function() {
-		// 	$log.info("landing_page_timeout function has fired");
-		// 	$timeout(function() {
-		// 		$state.go("setItUp");
-		// 	}, 4000);
-		// }
-		// $scope.landing_page_timeout();
 		
-		$scope.infinityCheckBox = true;//sets the default Randomizer to Infinity mode
 
-
-		//if you click one the other will unclick, if you unclick it will click the other.
+		$scope.raffleButton = false;
+		$scope.infinityButton = false;
+		
+		//If you check one the other will uncheck, if you uncheck it will check the other.
 		$scope.raffle = function() {
-			if ($scope.raffleCheckBox === false) {
-				$scope.infinityCheckBox = true;
-			}
-			if ($scope.raffleCheckBox === true) {
-				$scope.infinityCheckBox = false;
-			}
+			$scope.raffleButton = true;
+			$scope.infinityButton = false;
+			console.log("raffleButton ", $scope.raffleButton, "infinityButton ", $scope.infinityButton);
 		}
 
 		$scope.infinity = function() {
-			if ($scope.infinityCheckBox === true) {
-				$scope.raffleCheckBox = false;
-			}
-			if ($scope.infinityCheckBox === false) {
-				$scope.raffleCheckBox = true;
-			}
+			$scope.raffleButton = false;
+			$scope.infinityButton = true;
+			console.log("raffleButton ", $scope.raffleButton, "infinityButton ", $scope.infinityButton);
 		}
 
 
-		//After a category object has been created this function is called both at page load and object creation to GET all objects in the collection.
+		
+
+		//The getCategories function calls to the database to retrieve any documents in the collection.
 		$scope.getCategories = function() {
 			setItUpService.getCategories().then(function(response) {
 				console.log("In controller, response from GET functions = ", response);
@@ -51,7 +39,8 @@
 
 		
 		
-		//Takes the category name from the input box and sends it to the service so the category object be created.
+		//The addACategory function takes the category name from the input box and adds it to the list by sending it 
+		//to the service so the category object be created.
 		$scope.addACategory = function(categoryName) {
 			if ($scope.categoryName === "" || categoryName === undefined) {
 				$log.error("You must enter a category name");
@@ -69,8 +58,12 @@
 
 		
 
+		// The user clicks on one of the categories and fires this function.  
+		// This function splits the $scope.category object up into the different properties and 
+		//reassigns them to new $scope properties to be used elsewhere at convinience.  
+		// The entire category object is also passed through as an argument so that it can be sent 
+		// to service and then sent to the infinity-go-controller.
 		$scope.selectCategory = function(index, name, id, items, category) {
-			
 			$scope.categoryIndex = index;
 			$scope.categoryNameInfinity = name;
 			$scope.categoryNameRaffle = name;
@@ -83,43 +76,24 @@
 			}
 			sendCategoryToService();
 			
-			if ($scope.infinityCheckBox === true) {
+			if ($scope.infinityButton === true) {
 				$state.go("infinity-go");
 			}
-			if ($scope.raffleCheckBox === true) {
+			if ($scope.raffleButton === true) {
 			$state.go("raffle-go")
 			}
 		}
 
 		
-
+		//This is a button on the items list pages that takes us back to the category view.
 		$scope.categoriesShow = function() { 
 			$state.go("setItUp");
 		}
 
 		
-
-		// $scope.addAnItem = function(itemName) {
-		// 	if ($scope.categoryItem === "" || $scope.categoryItem === undefined) {
-		// 		$log.error("You must enter into the input box");
-		// 		return;
-		// 	}
-		// 	else {
-		// 	var itemsObject = {
-		// 		itemName: itemName,
-		// 		itemShow: true
-		// 	};
-		// 	$scope.categoryItems.unshift(itemsObject);
-		// 	setItUpService.addAnItem($scope.categoryItems, $scope._id).then(function(response) {
-		// 		// console.log("the addAnItem response ", response)
-		// 	});
-		// 	$scope.categoryItem = "";
-		// 	$scope.getCategories();
-		// 	}
-		// };
-
-		
-
+		//Obviously this button is to delete any unwanted category. 
+		//Using the ng-repeat's $index we can take that category's index and send 
+		//it off to the database to be deleted.
 		$scope.deleteCategory = function(index) {
 			var id = $scope.categories[index]._id;
 			setItUpService.deleteCategory(id).then(function(response) {
@@ -128,46 +102,11 @@
 			$scope.getCategories();
 		};
 
-		
-
-		// $scope.deleteItem = function(index) {
-		// 	$scope.categoryItems.splice(index, 1);
-		// 	var bob = $scope.categoryItems;
-		// 	setItUpService.addAnItem(bob, $scope._id).then(function(response) {
-
-		// 	})
-		//  $scope.getCategories();
-		// };
-
-		
-
-		// $scope.infinity_randomize = function() {
-		// 	var itemsLength = $scope.categoryItems.length;
-		// 	var randomNumber = Math.floor(Math.random() * itemsLength);
-		// 	for (var i = 0; i < itemsLength; i++) {
-		// 		if (i === randomNumber) {
-		// 			$scope.finalRandomItem = $scope.categoryItems[i];
-		// 		}
-		// 	}
-		// }
 
 
-		
-		
+
+
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 	setItUpControllerCB.$inject = $inject;
 	app.controller("setItUpController", setItUpControllerCB)
