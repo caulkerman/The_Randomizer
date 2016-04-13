@@ -3,6 +3,7 @@ app.service("setItUpService", ["$http", "$q", function($http, $q) {
 
 var storedCategory;
 var categoryObject = {};
+var trueOrFalseObject = {}
 
 
 //makeACategoryObject function takes the categoryName parameter from 
@@ -91,14 +92,18 @@ this.sendStoredCategoryInService = function() {
 
 
 
-// this.raffle = function(raffleBoolean) {
-// 	var deferred = $q.defer();
+this.trueOrFalse = function(param1, param2) {
+	trueOrFalseObject._param1 = param1,
+	trueOrFalseObject._param2 = param2
+	console.log("trueOrFalse object in service ", trueOrFalseObject)
+}
 
-// 	var newBoolean = true;
-// 	deferred.resolve(newBoolean);
-// 	return.deferred.promise;
+this.returnTrueOrFalseObject = function() {
+	return trueOrFalseObject;
+}
 
-// }
+
+
 // this.infinity = function(infinityBoolean) {
 
 // }

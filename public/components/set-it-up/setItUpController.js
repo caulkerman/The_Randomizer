@@ -5,22 +5,41 @@
 		/////////ADD CONTROLLER JAVASCRIPT BELOW////////
 		
 
-		$scope.raffleButton = false;
-		$scope.infinityButton = false;
 		
-		//If you check one the other will uncheck, if you uncheck it will check the other.
+		//Using the 3 functions below allows the user to set whether it's raffle or infinity style 
+		//and that choice will persist as the user goes back and forth between the categories 
+		//and the items.  The choice is saved in the service and called automatically when the categories
+		//page is called again.
 		$scope.raffle = function() {
-			$scope.raffleButton = true;
-			$scope.infinityButton = false;
-			console.log("raffleButton ", $scope.raffleButton, "infinityButton ", $scope.infinityButton);
+			var raffleTrue = true;
+			var infinityFalse = false;
+			setItUpService.trueOrFalse(raffleTrue, infinityFalse);
+			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
+			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
+			console.log("raffleButton true ", $scope.raffleButton, "infinityButton false ", $scope.infinityButton);
 		}
-
 		$scope.infinity = function() {
-			$scope.raffleButton = false;
-			$scope.infinityButton = true;
-			console.log("raffleButton ", $scope.raffleButton, "infinityButton ", $scope.infinityButton);
+			var raffleFalse = false;
+			var infinityTrue = true;
+			setItUpService.trueOrFalse(raffleFalse, infinityTrue);
+			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
+			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
+			console.log("raffleButton false ", $scope.raffleButton, "infinityButton true ", $scope.infinityButton);
 		}
-
+		$scope.automaticRestoreTheTrueOrFalse = function() {
+			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			if ($scope.returnedTrueOrFalse._param1 === true) {
+				$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
+				$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
+			}
+			if ($scope.returnedTrueOrFalse._param1 === false) {
+				$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
+				$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
+			}
+		}
+		$scope.automaticRestoreTheTrueOrFalse();
 
 		
 
