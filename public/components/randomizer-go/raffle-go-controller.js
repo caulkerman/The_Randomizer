@@ -26,11 +26,13 @@
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
 			}
+			console.log(categoryNames);
 			$scope._id = categoryNames._id
-			$scope.items = categoryNames.items;
+			$scope.items = categoryNames.items.normalItems;
+			$scope.raffleItems = categoryNames.items.raffleItems;
 			$scope.categoryNameInfinity = categoryNames.name;  //the items array of objects containing itemName and itemShow.
-			console.log("$scope.items ", $scope.items);
-			console.log("id ", $scope._id);
+			console.log("$scope.raffleItems ", $scope.raffleItems);
+			// console.log("id ", $scope._id);
 		}
 		$scope.getStoredCategoryInService();
 
@@ -64,24 +66,40 @@
 		$scope.deleteItem = function(index) {
 			$scope.items.splice(index, 1);
 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
-				console.log("delete Item response ", response);
+				// console.log("delete Item response ", response);
 			})
 			$scope.getStoredCategoryInService();
 		}
 
 
 
-		//The infinity_randomize function makes the magic for the Infinity Randomizer.
-		$scope.infinity_randomize = function() {
-			var itemsLength = $scope.items.length;
-			var randomNumber = Math.floor(Math.random() * itemsLength);
-			for (var i = 0; i < itemsLength; i++) {
-				if (i === randomNumber) {
-					$scope.finalRandomItem = $scope.items[i];
-				}
-			}
-			console.log("RANDOMIZING!!!!");
-		}
+		//The raffle_randomize function makes the magic for the Raffle Randomizer. It changes the itemShow
+		//property to false and sends it out to the database to be updated.
+		// $scope.secondItemsArray = [];
+		// $scope.raffle_randomize = function() {
+			 	
+			
+		// 	for(var i = 0; i = $scope.items.length; i++) {
+		// 		if ($scope.items[i].itemShow === true) {
+		// 			$scope.secondItemsArray.slice(i, 1)
+		// 		}
+		// 	}
+
+		
+		// 	var itemsLength = $scope.items.length;
+		// 	var randomNumber = Math.floor(Math.random() * itemsLength);
+		// 	for (var i = 0; i < itemsLength; i++) {
+		// 		if (i === randomNumber) {
+		// 			$scope.finalRandomItem = $scope.items[i];
+		// 			$scope.finalRandomItem.itemShow = false;//maybe move this to the new array.
+		// 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
+		// 			})
+		// 			$scope.items.splice(i, 1);
+		// 			console.log("the items Array ", $scope.items)
+		// 		}
+		// 	}
+		// 	$log.info("RANDOMIZING!!!!");
+		// }
 
 	
 

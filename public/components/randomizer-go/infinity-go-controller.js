@@ -19,19 +19,19 @@
 		//undefined so I send the user back to the category page so the category data can be 
 		//sent through the service again and the page not get stuck in error mode because the ._id 
 		//is undefined.
-		$scope.getStoredCategoryInService = function() {
+		$scope.getStoredCategoryFromService = function() {
 			var categoryNames = setItUpService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
 			}
 			$scope._id = categoryNames._id
-			$scope.items = categoryNames.items;
+			$scope.items = categoryNames.items.normalItems;
 			$scope.categoryNameInfinity = categoryNames.name;  //the items array of objects containing itemName and itemShow.
-			console.log("$scope.items ", $scope.items);
-			console.log("id ", $scope._id);
+			// console.log("The stored $scope.items from service ", $scope.items);
+			// console.log("id ", $scope._id);
 		}
-		$scope.getStoredCategoryInService();
+		$scope.getStoredCategoryFromService();
 
 
 
@@ -47,12 +47,15 @@
 				itemName: itemName,
 				itemShow: true
 			};
+			// console.log("the itemsObject ", itemsObject);
+			// console.log("the $scope.items array ", $scope.items);
 			$scope.items.unshift(itemsObject);
+			// console.log("the $scope.items array after unshift ", $scope.items);
 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
-				// console.log("the addAnItem response ", response)
+				console.log("the addAnItem response ", response)
 			});
 			$scope.categoryItem = "";
-			$scope.getStoredCategoryInService();
+			$scope.getStoredCategoryFromService();
 			}
 		};
 
@@ -63,7 +66,7 @@
 		$scope.deleteItem = function(index) {
 			$scope.items.splice(index, 1);
 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
-				console.log("delete Item response ", response);
+				// console.log("delete Item response ", response);
 			})
 			$scope.getStoredCategoryInService();
 		}
@@ -79,7 +82,7 @@
 					$scope.finalRandomItem = $scope.items[i];
 				}
 			}
-			console.log("RANDOMIZING!!!!");
+			$log.info("RANDOMIZING!!!!");
 		}
 
 	

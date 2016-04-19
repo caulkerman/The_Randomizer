@@ -11,7 +11,10 @@ var trueOrFalseObject = {}
 //object already defined at page load.
 this.makeACategoryObject = function(categoryName) {
 	categoryObject.name = categoryName;
-	categoryObject.items = [];
+	categoryObject.items = {};
+	// categoryObject.items.normalItems = [];
+	// categoryObject.items.raffleItems = [];
+	console.log("In the service the newly created object ", categoryObject);
 };
 
 
@@ -50,7 +53,7 @@ this.getCategories = function() {
 //The addAnItem serves to PUT new items onto the categoryObject during update.  
 //This function is also used in the app whenever an update is needed.
 this.addAnItem = function(itemName, id) {
-	console.warn("In service, the item ", itemName);
+	console.warn("In service, the item ", typeof itemName, "and the id ", id);
 	var deferred = $q.defer();
 	$http({
 		method: "PUT",
@@ -58,6 +61,20 @@ this.addAnItem = function(itemName, id) {
 		data: itemName
 	}).then(function(response) {
 		// console.log("In service, items updated", response)
+		deferred.resolve(response);
+	});
+	return deferred.promise;
+};
+
+
+
+this.updateRaffleItemsArray = function(itemName, id) {
+	var deferred = $q.defer();
+	$http({
+		method: "PUT",
+		url: '/api/raffle-subject-Lists/' + id,
+		data: itemName
+	}).then(function(response) {
 		deferred.resolve(response);
 	});
 	return deferred.promise;
@@ -92,10 +109,13 @@ this.sendStoredCategoryInService = function() {
 
 
 
+//The trueOrFalse and returnTrueOrFalseObject functions save the user's choice of either raffle style
+//or infinity style randomizer and returns it to the controller so they can stay either raffle or infinity
+//as they use the app.
 this.trueOrFalse = function(param1, param2) {
 	trueOrFalseObject._param1 = param1,
 	trueOrFalseObject._param2 = param2
-	console.log("trueOrFalse object in service ", trueOrFalseObject)
+	// console.log("trueOrFalse object in service ", trueOrFalseObject)
 }
 
 this.returnTrueOrFalseObject = function() {
@@ -103,10 +123,6 @@ this.returnTrueOrFalseObject = function() {
 }
 
 
-
-// this.infinity = function(infinityBoolean) {
-
-// }
 
 
 

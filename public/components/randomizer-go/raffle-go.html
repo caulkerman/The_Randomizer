@@ -1,20 +1,22 @@
 <div id="raffle-items">
 	<h3>Raffle Items</h3>
-	<h2>{{categoryNameInfinity}}</h2>
-	{{finalRandomItem.itemName}}
-	<p class="stays">Right now the result of clicking "GO" stays listed above until I refresh the page.  I will probably have to make html templates for this functionality and have their own routes. Also, where the result sits needs to be in a div so that the page does not jump and skip around.</p>
+	<h2>{{categoryNameRaffle}}</h2>
+	
 	<button ng-click="categoriesShow()">Categories</button>
 	<div>
 		<form>
-			<input class="shadow" type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input class="shadow" type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
 		</form>
-
+		<button class="go_button" ng-click="raffle_randomize()">GO!</button>
+		<div class="random_item_result_div">
+			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
+		</div>
 		<table>
 			<tr ng-repeat="item in items track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
+				<td class="item_table_column" ng-show="item.itemShow">{{item.itemName}}</td>
 				<td>
-					<button class="delete shadow" ng-click="deleteItem($index)">X</button>
+					<button class="delete shadow" ng-click="deleteItem($index)" ng-show="item.itemShow">X</button>
 				</td>
 			</tr>
 		</table>

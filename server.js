@@ -19,12 +19,12 @@ app.use(cors());
 // Endpoints
 app.post('/api/subject-items-Lists', RandomCtrl.create);
 app.get('/api/subject-items-Lists', RandomCtrl.read);
-app.put('/api/subject-items-Lists/:id', RandomCtrl.update);
+app.put('/api/subject-items-Lists/:id', RandomCtrl.normalItemsUpdate);
 app.delete('/api/subject-items-Lists/:id', RandomCtrl.delete);
 
 // app.post('/api/raffle-subject-Lists', RaffleCtrl.create);
 // app.get('/api/raffle-subject-Lists', RaffleCtrl.read);
-// app.put('/api/raffle-subject-Lists/:id', RaffleCtrl.update);
+app.put('/api/raffle-subject-Lists/:id', RandomCtrl.raffleItemsUpdate);
 // app.delete('/api/raffle-subject-Lists/:id', RaffleCtrl.delete);
 
 

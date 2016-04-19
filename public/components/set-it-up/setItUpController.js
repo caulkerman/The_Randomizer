@@ -17,7 +17,7 @@
 			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
-			console.log("raffleButton true ", $scope.raffleButton, "infinityButton false ", $scope.infinityButton);
+			// console.log("raffleButton true ", $scope.raffleButton, "infinityButton false ", $scope.infinityButton);
 		}
 		$scope.infinity = function() {
 			var raffleFalse = false;
@@ -26,7 +26,7 @@
 			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
-			console.log("raffleButton false ", $scope.raffleButton, "infinityButton true ", $scope.infinityButton);
+			// console.log("raffleButton false ", $scope.raffleButton, "infinityButton true ", $scope.infinityButton);
 		}
 		$scope.automaticRestoreTheTrueOrFalse = function() {
 			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
@@ -74,6 +74,7 @@
 			$scope.categoryName = "";
 			$scope.getCategories();
 		};
+
 
 		
 

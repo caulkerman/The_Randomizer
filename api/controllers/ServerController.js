@@ -12,6 +12,8 @@ module.exports = {
     });
   },
 
+  
+
   read: function(req, res) {
     Random.find(req.query)
     .exec(function(err, result) {
@@ -20,14 +22,29 @@ module.exports = {
     });
   },
 
-  update: function(req, res) {
+  
+
+  normalItemsUpdate: function(req, res) {
     console.log("update function in api controller, req ", req.body);
-    Random.findByIdAndUpdate(req.params.id, {"items": req.body}, {"new": true}, function(err, result) {
+    Random.findByIdAndUpdate(req.params.id, {"items.normalItems": req.body},  { "new": true }, function(err, result) {
       if (err) return res.status(500).send(err);
       else res.send(result);
     });
     console.log("the res.body ", res.body);
   },
+
+  
+
+  raffleItemsUpdate: function(req, res) {
+    console.log("update function in api controller, req ", req.body);
+    Random.findByIdAndUpdate(req.params.id, {"items.raffleItems": req.body},  { "new": true }, function(err, result) {
+      if (err) return res.status(500).send(err);
+      else res.send(result);
+    });
+    console.log("the res.body ", res.body);
+  },
+
+  
 
   delete: function(req, res) {
     Random.findByIdAndRemove(req.params.id, function(err, result) {

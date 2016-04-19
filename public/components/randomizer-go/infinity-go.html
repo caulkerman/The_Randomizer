@@ -6,7 +6,7 @@
 	
 	<div>
 		<form>
-			<input class="shadow" type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
+			<input class="shadow" type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
 		</form>
 		<button class="go_button" ng-click="infinity_randomize()">GO!</button>
