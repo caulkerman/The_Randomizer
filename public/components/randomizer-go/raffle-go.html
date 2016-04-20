@@ -17,7 +17,7 @@
 			<tr ng-repeat="item in normalItems track by $index">
 				<td class="item_table_column">{{item.itemName}}</td>
 				<td>
-					<button class="delete shadow" ng-click="deleteItem($index)" ng-show="item.itemShow">X</button>
+					<button class="delete shadow" ng-click="deleteItem($index)">X</button>
 				</td>
 			</tr>
 		</table>

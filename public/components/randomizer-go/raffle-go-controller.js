@@ -65,8 +65,8 @@
 		//Obviously to splice out the particular item in the items array and get the 
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
-			$scope.items.splice(index, 1);
-			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
+			$scope.normalItems.splice(index, 1);
+			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("delete Item response ", response);
 			})
 			$scope.getStoredCategoryInService();
