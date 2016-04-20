@@ -26,13 +26,13 @@
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
 			}
-			console.log("The categoryNames object from service ",categoryNames);
+			// console.log("The categoryNames object from service ",categoryNames);
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
 			$scope.categoryNameRaffle = categoryNames.name;  //the items array of objects containing itemName and itemShow.
-			console.log("$scope.normalItems ", $scope.normalItems);
-			console.log("$scope.raffleItems ", $scope.raffleItems);
+			// console.log("$scope.normalItems ", $scope.normalItems);
+			// console.log("$scope.raffleItems ", $scope.raffleItems);
 			// console.log("id ", $scope._id);
 		}
 		$scope.getStoredCategoryInService();
@@ -74,6 +74,10 @@
 
 
 		
+		//The raffle_randomize function uses Math.random and a for loop to choose an item name at random.
+		//The item name is then  pushed to the raffleItems array as a backup copy while the normalItems
+		//array has that chosen item name spliced from it.  Both arrays are sent to the database for updating
+		//independently of each other.
 		$scope.raffle_randomize = function() {
 			
 			var itemsLength = $scope.normalItems.length;
@@ -88,24 +92,24 @@
 					setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 					});
 					
-					console.log("the normalItems Array ", $scope.normalItems);
-					console.log("the raffleItems Array ", $scope.raffleItems);
+					// console.log("the normalItems Array ", $scope.normalItems);
+					// console.log("the raffleItems Array ", $scope.raffleItems);
 				}
 			}
 			$log.info("RANDOMIZING!!!!");
 		};
 
 
+		
 
+		//The raffle_reset function uses a for loop and pushes each item name from the raffleItems array
+		//back to the normalItems array.  Then another for loop loops over the raffleItems array and deletes
+		//each item using the .pop() method.  The arrays are then updated in the database.
 		$scope.raffle_reset = function() {
 			// debugger
 			var itemsLength = $scope.raffleItems.length;
 			for(var i = 0; i < itemsLength; i++) {
 				$scope.normalItems.push($scope.raffleItems[i]);
-				console.log("normalItems ", $scope.normalItems);
-				
-				// console.log("for loop push to raffleItems ", $scope.raffleItems[i]);
-				// console.log("normalItems array ", $scope.normalItems);
 			};
 
 			for(var i = 0; i < itemsLength; i++) {
@@ -116,8 +120,6 @@
 			});
 			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 			});
-			console.log("normalItems array ", $scope.normalItems);
-			console.log("raffleItems array ", $scope.raffleItems);
 		};
 
 	
