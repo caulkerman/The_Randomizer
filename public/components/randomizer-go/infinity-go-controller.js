@@ -45,7 +45,7 @@
 			else {
 			var itemsObject = {
 				itemName: itemName,
-				itemShow: true
+				// itemShow: true
 			};
 			// console.log("the itemsObject ", itemsObject);
 			// console.log("the $scope.items array ", $scope.items);

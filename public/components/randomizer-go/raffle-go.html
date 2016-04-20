@@ -9,12 +9,13 @@
 			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
 		</form>
 		<button class="go_button" ng-click="raffle_randomize()">GO!</button>
+		<button ng-click="raffle_reset()">Reset</button>
 		<div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 		</div>
 		<table>
-			<tr ng-repeat="item in items track by $index">
-				<td class="item_table_column" ng-show="item.itemShow">{{item.itemName}}</td>
+			<tr ng-repeat="item in normalItems track by $index">
+				<td class="item_table_column">{{item.itemName}}</td>
 				<td>
 					<button class="delete shadow" ng-click="deleteItem($index)" ng-show="item.itemShow">X</button>
 				</td>

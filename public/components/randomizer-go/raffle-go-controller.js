@@ -26,11 +26,12 @@
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
 			}
-			console.log(categoryNames);
+			console.log("The categoryNames object from service ",categoryNames);
 			$scope._id = categoryNames._id
-			$scope.items = categoryNames.items.normalItems;
+			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
-			$scope.categoryNameInfinity = categoryNames.name;  //the items array of objects containing itemName and itemShow.
+			$scope.categoryNameRaffle = categoryNames.name;  //the items array of objects containing itemName and itemShow.
+			console.log("$scope.normalItems ", $scope.normalItems);
 			console.log("$scope.raffleItems ", $scope.raffleItems);
 			// console.log("id ", $scope._id);
 		}
@@ -48,10 +49,10 @@
 			else {
 			var itemsObject = {
 				itemName: itemName,
-				itemShow: true
+				// itemShow: true
 			};
-			$scope.items.unshift(itemsObject);
-			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
+			$scope.normalItems.unshift(itemsObject);
+			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("the addAnItem response ", response)
 			});
 			$scope.categoryItem = "";
@@ -72,34 +73,52 @@
 		}
 
 
-
-		//The raffle_randomize function makes the magic for the Raffle Randomizer. It changes the itemShow
-		//property to false and sends it out to the database to be updated.
-		// $scope.secondItemsArray = [];
-		// $scope.raffle_randomize = function() {
-			 	
-			
-		// 	for(var i = 0; i = $scope.items.length; i++) {
-		// 		if ($scope.items[i].itemShow === true) {
-		// 			$scope.secondItemsArray.slice(i, 1)
-		// 		}
-		// 	}
-
 		
-		// 	var itemsLength = $scope.items.length;
-		// 	var randomNumber = Math.floor(Math.random() * itemsLength);
-		// 	for (var i = 0; i < itemsLength; i++) {
-		// 		if (i === randomNumber) {
-		// 			$scope.finalRandomItem = $scope.items[i];
-		// 			$scope.finalRandomItem.itemShow = false;//maybe move this to the new array.
-		// 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
-		// 			})
-		// 			$scope.items.splice(i, 1);
-		// 			console.log("the items Array ", $scope.items)
-		// 		}
-		// 	}
-		// 	$log.info("RANDOMIZING!!!!");
-		// }
+		$scope.raffle_randomize = function() {
+			
+			var itemsLength = $scope.normalItems.length;
+			var randomNumber = Math.floor(Math.random() * itemsLength);
+			for (var i = 0; i < itemsLength; i++) {
+				if (i === randomNumber) {
+					$scope.finalRandomItem = $scope.normalItems[i];
+					$scope.raffleItems.push($scope.finalRandomItem);
+					$scope.normalItems.splice(i, 1);
+					setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+					});
+					setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+					});
+					
+					console.log("the normalItems Array ", $scope.normalItems);
+					console.log("the raffleItems Array ", $scope.raffleItems);
+				}
+			}
+			$log.info("RANDOMIZING!!!!");
+		};
+
+
+
+		$scope.raffle_reset = function() {
+			// debugger
+			var itemsLength = $scope.raffleItems.length;
+			for(var i = 0; i < itemsLength; i++) {
+				$scope.normalItems.push($scope.raffleItems[i]);
+				console.log("normalItems ", $scope.normalItems);
+				
+				// console.log("for loop push to raffleItems ", $scope.raffleItems[i]);
+				// console.log("normalItems array ", $scope.normalItems);
+			};
+
+			for(var i = 0; i < itemsLength; i++) {
+				$scope.raffleItems.pop();
+			}
+			
+			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+			});
+			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			});
+			console.log("normalItems array ", $scope.normalItems);
+			console.log("raffleItems array ", $scope.raffleItems);
+		};
 
 	
 
