@@ -30,10 +30,7 @@
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
-			$scope.categoryNameRaffle = categoryNames.name;  //the items array of objects containing itemName and itemShow.
-			// console.log("$scope.normalItems ", $scope.normalItems);
-			// console.log("$scope.raffleItems ", $scope.raffleItems);
-			// console.log("id ", $scope._id);
+			// $scope.raffleNormalItems = categoryNames.items.raffleNormalItems;
 		}
 		$scope.getStoredCategoryInService();
 
@@ -52,9 +49,14 @@
 				// itemShow: true
 			};
 			$scope.normalItems.unshift(itemsObject);
+			$scope.raffleItems.unshift(itemsObject);
 			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("the addAnItem response ", response)
 			});
+			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+
+			});
+
 			$scope.categoryItem = "";
 			$scope.getStoredCategoryInService();
 			}
@@ -66,9 +68,13 @@
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
 			$scope.normalItems.splice(index, 1);
+			$scope.raffleItems.splice(index, 1);
 			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("delete Item response ", response);
-			})
+			});
+			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+
+			});
 			$scope.getStoredCategoryInService();
 		}
 
@@ -80,16 +86,14 @@
 		//independently of each other.
 		$scope.raffle_randomize = function() {
 			
-			var itemsLength = $scope.normalItems.length;
+			var itemsLength = $scope.raffleItems.length;
 			var randomNumber = Math.floor(Math.random() * itemsLength);
 			for (var i = 0; i < itemsLength; i++) {
 				if (i === randomNumber) {
-					$scope.finalRandomItem = $scope.normalItems[i];
-					$scope.raffleItems.push($scope.finalRandomItem);
-					$scope.normalItems.splice(i, 1);
+					$scope.finalRandomItem = $scope.raffleItems[i];
+					// $scope.raffleItems.push($scope.finalRandomItem);
+					$scope.raffleItems.splice(i, 1);
 					setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
-					});
-					setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 					});
 					
 					// console.log("the normalItems Array ", $scope.normalItems);
@@ -107,19 +111,17 @@
 		//each item using the .pop() method.  The arrays are then updated in the database.
 		$scope.raffle_reset = function() {
 			// debugger
-			var itemsLength = $scope.raffleItems.length;
-			for(var i = 0; i < itemsLength; i++) {
-				$scope.normalItems.push($scope.raffleItems[i]);
-			};
-
-			for(var i = 0; i < itemsLength; i++) {
+			for (var i = 0; i = $scope.raffleItems.length; i++) {
 				$scope.raffleItems.pop();
 			}
-			
-			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
-			});
+			var itemsLength = $scope.normalItems.length;
+			for(var i = 0; i < itemsLength; i++) {
+				if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
+					$scope.raffleItems.push($scope.normalItems[i]);
+				};
+			};
 			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
-			});
+				});
 		};
 
 	

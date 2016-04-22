@@ -14,7 +14,7 @@
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 		</div>
 		<table>
-			<tr ng-repeat="item in normalItems track by $index">
+			<tr ng-repeat="item in raffleItems track by $index">
 				<td class="item_table_column">{{item.itemName}}</td>
 				<td>
 					<button class="delete shadow" ng-click="deleteItem($index)">X</button>

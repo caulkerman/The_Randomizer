@@ -20,12 +20,12 @@ app.use(cors());
 app.post('/api/subject-items-Lists', RandomCtrl.create);
 app.get('/api/subject-items-Lists', RandomCtrl.read);
 app.put('/api/subject-items-Lists/:id', RandomCtrl.normalItemsUpdate);
+app.put('/api/raffle-subject-Lists/:id', RandomCtrl.raffleItemsUpdate);
+//The below PUT function only if I want the raffleNormalItems array updated.  
+//I would still have to create the funtion in the setItUpService to create the API.
+// app.put("/api//:id", RandomCtrl.raffleNormalItemsUpdate);
 app.delete('/api/subject-items-Lists/:id', RandomCtrl.delete);
 
-// app.post('/api/raffle-subject-Lists', RaffleCtrl.create);
-// app.get('/api/raffle-subject-Lists', RaffleCtrl.read);
-app.put('/api/raffle-subject-Lists/:id', RandomCtrl.raffleItemsUpdate);
-// app.delete('/api/raffle-subject-Lists/:id', RaffleCtrl.delete);
 
 
 // Connections

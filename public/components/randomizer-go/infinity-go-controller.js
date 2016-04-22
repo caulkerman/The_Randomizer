@@ -68,7 +68,7 @@
 			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
 				// console.log("delete Item response ", response);
 			})
-			$scope.getStoredCategoryInService();
+			$scope.getStoredCategoryFromService();
 		}
 
 

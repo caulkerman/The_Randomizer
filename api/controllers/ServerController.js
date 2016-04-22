@@ -44,6 +44,17 @@ module.exports = {
     console.log("the res.body ", res.body);
   },
 
+
+//This function only if I want the raffleNormalItems array updated.
+  // raffleNormalItemsUpdate: function(req, res) {
+  //   console.log("update function in api controller, req ", req.body);
+  //   Random.findByIdAndUpdate(req.params.id, {"items.raffleNormalItems": req.body},  { "new": true }, function(err, result) {
+  //     if (err) return res.status(500).send(err);
+  //     else res.send(result);
+  //   });
+  //   console.log("the res.body ", res.body);
+  // },
+
   
 
   delete: function(req, res) {

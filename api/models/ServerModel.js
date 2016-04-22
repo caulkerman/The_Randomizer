@@ -10,6 +10,7 @@ var RandomSchema = mongoose.Schema ({
   	name: { type: String },
   	items: { 
   		normalItems: { type: Array },
+  		// raffleNormalItems: { type: Array },
  		raffleItems: { type: Array } 
  	}	
   

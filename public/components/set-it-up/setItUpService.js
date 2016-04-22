@@ -12,8 +12,6 @@ var trueOrFalseObject = {}
 this.makeACategoryObject = function(categoryName) {
 	categoryObject.name = categoryName;
 	categoryObject.items = {};
-	// categoryObject.items.normalItems = [];
-	// categoryObject.items.raffleItems = [];
 	console.log("In the service the newly created object ", categoryObject);
 };
 
