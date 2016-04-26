@@ -1,23 +1,25 @@
+<h1 class="categroy_h1" align="center">The Randomizer</h1>
 <div id="categories">
+	
+	<div id="button-container">
+		<button class="button" ng-model="raffleButton" ng-click="raffle()">Raffle Randomizer</button>
+		<button class="button" ng-model="infinityButton" ng-click="infinity()">Infinity Randomizer</button>
+	</div>
 	<div>
 		<form>
-			<input type="text" placeholder="Name Your Category" ng-model="categoryName" class=" shadow category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)" auto-focus>
+			<input type="text" ng-model="categoryName" class=" shadow category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)" auto-focus>
 			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
 		</form>
 	</div>
-
-	<!-- <input type="checkbox" ng-model="raffleCheckBox" ng-click="raffle()">Raffle Randomizer
-	<input type="checkbox" ng-model="infinityCheckBox" ng-click="infinity()">Infinity Randomizer -->
-	<button class="shadow" ng-model="raffleButton" ng-click="raffle()">Raffle Randomizer</button>
-	<button class="shadow" ng-model="infinityButton" ng-click="infinity()">Infinity Randomizer</button>
-	<br />
-
+	<hr />
+	<div class="table_div">
 	<table ng-repeat="category in categories track by $index">
 		<tr>
 			<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
-			<td><button class="delete shadow" ng-click="deleteCategory($index)">X</td>
+			<td class="category_table_column_button"><button class="delete shadow" ng-click="deleteCategory($index)">X</button></td>
 		</tr>
 	</table>
+	</div>
 </div>
 
 <!-- <div id="infinity-items">

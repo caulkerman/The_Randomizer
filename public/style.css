@@ -2,6 +2,7 @@ html body {
 	margin: 10px;
 	padding: 0;
 	font-family: sans-serif, serif;
+	background-color: #1b1918;
 }
 
 form {
@@ -16,48 +17,75 @@ input {
 	margin: 3px;
 }
 
-button {
-	margin: 0px 5px 0px 5px;
-}
+/*button {
+	margin-right: 5px;
+}*/
 
 table {
-	width: 400px;
+	/*min-width: 220px;*/
+
+	/*width: 400px;*/
 	border-collapse: separate;
-	border-spacing: 2px 3px;
+	border-spacing: 2px 2px;
+	/*border: solid 1px #333333;*/
 }
+
+.table_div {
+	/*margin-top: 15px;*/
+	/*min-width: 335px;*/
+
+}
+
+/*#categories {
+	border: solid 1px black;
+	width: 400px;
+}*/
 
 .category_table_column {
 	background-color: green;
+	/*background-color: #cccccc;*/
+	/*background-color: #85e085;*/
 	width: 100%;
-	color: #fff;
+	height: 40px;
+	color: white;
 	font-size: 1.3em;
 	padding-left: 10px;
-	border-radius: 4px;
+
+	
+}
+
+.category_table_column_button {
+	/*background-color: green;*/
 }
 
 .item_table_column {
-	background-color: red;
-	width: 100%;
+
+	/*background-color: red;*/
+	/*width: 100%;*/
+	color: #333333;
+	
+	/*border-radius: 4px;*/
+	/*border-bottom: solid 1px #333333;*/
+}
+
+.button {
+	height: 30px;
 	color: #fff;
-	font-size: 1.3em;
-	border-radius: 4px;
-
+	background-color: tan;
+	/*padding: 15px 0 0 15%;*/
 }
 
-.shadow {
-	-moz-box-shadow: 2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
-}
+
 
 .category-input {
-	width: 335px;
-	height: 30px;
+	/*width: 70%;*/
+	height: 25px;
 	border: 1px solid #ccc;
-    border-radius: 4px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;    
-    font-size: 20px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;    
+    font-size: 1.75em;
+    font-weight: 900;
     padding: 4px 7px;
     outline: 0;
     -webkit-appearance: none;
@@ -65,15 +93,13 @@ table {
 }
 
 .delete {
-	float: right;
-	color: red;
-	height: 30px;
-	width: 30px;
-	margin-top: 3px;
-}
-
-.stays {
-	color: orange;
+	background-color: brown;
+	/*float: right;*/
+	color: #cccccc;
+	font-size: 1.3em;
+	height: 40px;
+	width: 40px;
+	/*margin-top: 3px;*/
 }
 
 .go_button {
@@ -83,13 +109,85 @@ table {
 
 .random_item_result_div {
 	min-height: 70px;
-	width: 351px;
+	/*width: 351px;*/
 	margin-left: 2px;
-	border: solid brown 1px;
+	border: solid #fff 1px;
 	border-radius: 4px;
 }
 
 h2#random_item_result {
 	color: brown;
 	font-size
+}
+
+
+
+.categroy_h1 {
+	color: brown;
+}
+
+@media only screen and (min-width: 15em) and (max-width: 30em) {
+	.category_table_column {
+	width: 100%;
+	/*color: #333333;*/
+	color: white;
+	font-size: 1.3em;
+	height: 50px;
+	}
+
+	.delete {
+		height: 50px;
+		width: 50px;
+	}
+
+	.category-input {
+		width: 94%;
+		height: 40px;
+	}
+
+	.button {
+		width: 45%;
+		display: inline-block;
+	}
+
+	#button-container {
+		margin-left: .5%;
+		width: 108.5%;
+		margin-bottom: 10px;
+	}
+
+	.categroy_h1 {
+	/*margin-left: 20%;*/
+	/*align: center;*/
+	}
+
+	hr {
+		width: 98%;
+		margin: 10px 0 10px .5%;
+	}
+
+}
+
+
+@media only screen and (min-width: 30em) and (max-width: 80em) {
+	table {
+		margin: 0 auto;
+		width: 70%;
+	}
+
+	.category-input {
+		margin-left: 15.2%;
+		width: 68%;
+	}
+
+	#button-container {
+	margin: 0 0 10px 15.5%;
+	}
+
+	hr {
+	margin: 10 0 10px 0;
+	width: 69%;
+}
+
+	
 }

@@ -26,11 +26,17 @@
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
 			}
-			// console.log("The categoryNames object from service ",categoryNames);
+			console.log("The categoryNames object from service ",categoryNames);
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
-			// $scope.raffleNormalItems = categoryNames.items.raffleNormalItems;
+			
+			// var itemsLength = $scope.normalItems.length;
+			// for(var i = 0; i < itemsLength; i++) {
+			// 	if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
+			// 		$scope.raffleItems.push($scope.normalItems[i]);
+			// 	};
+			// };
 		}
 		$scope.getStoredCategoryInService();
 
