@@ -24,9 +24,11 @@
 			var categoryNames = setItUpService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
-			$state.go("setItUp");
+				$state.go("setItUp");
 			}
-			console.log("The categoryNames object from service ",categoryNames);
+			$scope.categoryNameRaffle = categoryNames.name;
+			console.log("The Names object from service ", $scope.categoryNameRaffle);
+			// console.log("The categoryNames object from service ",categoryNames);
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
@@ -131,7 +133,9 @@
 		};
 
 	
-
+		$scope.goToInfinity = function() {
+			$state.go("infinity-go");
+		}
 
 
 

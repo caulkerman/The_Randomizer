@@ -86,7 +86,9 @@
 		}
 
 	
-
+		$scope.goToRaffle = function() {
+			$state.go("raffle-go");
+		}
 
 
 

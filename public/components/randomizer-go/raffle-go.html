@@ -3,6 +3,7 @@
 	<h2>{{categoryNameRaffle}}</h2>
 	
 	<button ng-click="categoriesShow()">Categories</button>
+	<button ng-click="goToInfinity()">Go To Infinity Randomizer</button>
 	<div>
 		<form>
 			<input class="shadow" type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>

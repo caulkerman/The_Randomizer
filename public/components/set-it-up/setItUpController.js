@@ -115,11 +115,16 @@
 		//Using the ng-repeat's $index we can take that category's index and send 
 		//it off to the database to be deleted.
 		$scope.deleteCategory = function(index) {
+			var confirmDelete = confirm("Deleting will delete this category and ALL of its items!");
+			if (confirmDelete === false) {
+				return
+			}else if (confirmDelete === true) {
 			var id = $scope.categories[index]._id;
 			setItUpService.deleteCategory(id).then(function(response) {
 				// console.log("category item deleted");
-			})
+			});
 			$scope.getCategories();
+			};
 		};
 
 

@@ -17,45 +17,22 @@ input {
 	margin: 3px;
 }
 
-/*button {
-	margin-right: 5px;
-}*/
-
 table {
-	/*min-width: 220px;*/
-
-	/*width: 400px;*/
 	border-collapse: separate;
 	border-spacing: 2px 2px;
-	/*border: solid 1px #333333;*/
 }
-
-.table_div {
-	/*margin-top: 15px;*/
-	/*min-width: 335px;*/
-
-}
-
-/*#categories {
-	border: solid 1px black;
-	width: 400px;
-}*/
 
 .category_table_column {
 	background-color: green;
-	/*background-color: #cccccc;*/
-	/*background-color: #85e085;*/
 	width: 100%;
 	height: 40px;
 	color: white;
 	font-size: 1.3em;
 	padding-left: 10px;
-
-	
 }
 
 .category_table_column_button {
-	/*background-color: green;*/
+
 }
 
 .item_table_column {
@@ -72,14 +49,24 @@ table {
 	height: 30px;
 	color: #fff;
 	background-color: tan;
-	/*padding: 15px 0 0 15%;*/
 }
 
+/*.true-button {
+	color: green;
+}
 
+.false-button {
+	color: red;
+}*/
+
+#button-container {
+	margin: 0 0 10px 1px;
+}
 
 .category-input {
-	/*width: 70%;*/
-	height: 25px;
+	width: 38.4%;
+	height: 35px;
+	margin: 0 0 0 2px;
 	border: 1px solid #ccc;
     border-radius: 3px;
     -moz-border-radius: 3px;
@@ -89,17 +76,14 @@ table {
     padding: 4px 7px;
     outline: 0;
     -webkit-appearance: none;
-    
 }
 
 .delete {
 	background-color: brown;
-	/*float: right;*/
 	color: #cccccc;
 	font-size: 1.3em;
 	height: 40px;
 	width: 40px;
-	/*margin-top: 3px;*/
 }
 
 .go_button {
@@ -109,7 +93,6 @@ table {
 
 .random_item_result_div {
 	min-height: 70px;
-	/*width: 351px;*/
 	margin-left: 2px;
 	border: solid #fff 1px;
 	border-radius: 4px;
@@ -120,19 +103,18 @@ h2#random_item_result {
 	font-size
 }
 
-
-
 .categroy_h1 {
 	color: brown;
+	text-align: left;
 }
 
 @media only screen and (min-width: 15em) and (max-width: 30em) {
+	
 	.category_table_column {
-	width: 100%;
-	/*color: #333333;*/
-	color: white;
-	font-size: 1.3em;
-	height: 50px;
+		width: 100%;
+		color: white;
+		font-size: 1.3em;
+		height: 50px;
 	}
 
 	.delete {
@@ -156,38 +138,61 @@ h2#random_item_result {
 		margin-bottom: 10px;
 	}
 
-	.categroy_h1 {
-	/*margin-left: 20%;*/
-	/*align: center;*/
-	}
-
 	hr {
 		width: 98%;
 		margin: 10px 0 10px .5%;
+	}
+
+	.categroy_h1 {
+		text-align: center;
 	}
 
 }
 
 
 @media only screen and (min-width: 30em) and (max-width: 80em) {
+	
 	table {
 		margin: 0 auto;
-		width: 70%;
+		width: 80%;
 	}
 
 	.category-input {
-		margin-left: 15.2%;
-		width: 68%;
+		margin-left: 10.3%;
+		width: 77.5%;
+		height:40px;
 	}
 
 	#button-container {
-	margin: 0 0 10px 15.5%;
+		margin: 0 0 10px 10.3%;
 	}
 
 	hr {
-	margin: 10 0 10px 0;
-	width: 69%;
-}
+		margin: 10 0 10px 10.3%;
+		width: 79%;
+	}
+
+	.categroy_h1 {
+		text-align: center;
+	}
 
 	
+}
+
+@media only screen and (min-width: 80em) {
+
+	.table_div {
+		width: 40%;
+	}
+
+	.category-input {
+
+	}
+
+	hr {
+		width: 39.4%;
+		margin-left: 2px;
+	}
+
+
 }

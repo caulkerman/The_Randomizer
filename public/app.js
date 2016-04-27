@@ -19,12 +19,6 @@ var app = angular.module("the_randomizer", ["ui.router", 'mp.autoFocus'])
       controller: "setItUpController"
 	  })
 
-    // .state("some", {
-    //   url: "/some",
-    //   templateUrl:"components/set-it-up/some.html",
-    //   controller: "someController"
-    // })
-
     .state("infinity-go", {
       url: "/infinity-style-randomizer",
       templateUrl: "components/randomizer-go/infinity-go.html",
