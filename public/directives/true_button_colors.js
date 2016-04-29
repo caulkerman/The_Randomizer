@@ -10,7 +10,7 @@ app.directive("rwButtonColors", function() {
 				
 				$("button#raffleButton")
 				.css({"color": "green",
-					"font-weight": "900",
+					"font-weight": "bold",
 					"background-color": "#fff"
 				});
 				
@@ -27,7 +27,7 @@ app.directive("rwButtonColors", function() {
 				
 				$("button#infinityButton")
 				.css({"color": "green",
-					"font-weight": "900",
+					"font-weight": "bold",
 					"background-color": "#fff"
 				});
 				
@@ -45,7 +45,7 @@ app.directive("rwButtonColors", function() {
 			if ($scope.raffleButton === true) {
 				$("button#raffleButton")
 				.css({"color": "green",
-					"font-weight": "900",
+					"font-weight": "bold",
 					"background-color": "#fff"
 				});
 				$("button#infinityButton")
@@ -58,7 +58,7 @@ app.directive("rwButtonColors", function() {
 			if ($scope.infinityButton === true) {
 				$("button#infinityButton")
 				.css({"color": "green",
-					"font-weight": "900",
+					"font-weight": "bold",
 					"background-color": "#fff"
 				});
 				$("button#raffleButton")

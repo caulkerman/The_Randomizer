@@ -1,27 +1,32 @@
+<link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
 <div id="infinity-items">
-	<h3>Infinity Randomizer</h3>
-	<h2>{{categoryNameInfinity}}</h2>
+	<h1 class="categroy_h1">Infinity Randomizer</h1>
+	
 	
 	<button ng-click="categoriesShow()">Categories</button>
 	<button ng-click="goToRaffle()">Go To Raffle Randomizer</button>
 	
 	<div>
 		<form>
-			<input class="shadow" type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
-			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
+			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
 		<button class="go_button" ng-click="infinity_randomize()">GO!</button>
+		
+		<h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2>
 		<div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 		</div>
-
-		<table>
-			<tr ng-repeat="item in items track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
-				<td>
-					<button class="delete shadow" ng-click="deleteItem($index)">X</button>
-				</td>
-			</tr>
-		</table>
+		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2> -->
+		<!-- <hr> -->
+		<div class="item-table-div">
+			<table>
+				<tr ng-repeat="item in items track by $index">
+					<td class="item_table_column">{{item.itemName}}</td>
+					<td>
+						<button class="delete" ng-click="deleteItem($index)">X</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

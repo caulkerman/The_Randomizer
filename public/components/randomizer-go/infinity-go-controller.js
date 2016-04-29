@@ -1,6 +1,6 @@
 (function() {
-	var $inject = ["$scope", "$log", "setItUpService", "$state", "$stateParams"];
-	function infinityGoControllerCB($scope, $log, setItUpService, $state, $stateParams) {
+	var $inject = ["$scope", "$log", "theService", "$state", "$stateParams"];
+	function infinityGoControllerCB($scope, $log, theService, $state, $stateParams) {
 
 		
 			//  CONTROLLER CODE HERE  //
@@ -20,7 +20,7 @@
 		//sent through the service again and the page not get stuck in error mode because the ._id 
 		//is undefined.
 		$scope.getStoredCategoryFromService = function() {
-			var categoryNames = setItUpService.sendStoredCategoryInService();
+			var categoryNames = theService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 			$state.go("setItUp");
@@ -51,7 +51,7 @@
 			// console.log("the $scope.items array ", $scope.items);
 			$scope.items.unshift(itemsObject);
 			// console.log("the $scope.items array after unshift ", $scope.items);
-			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
+			theService.addAnItem($scope.items, $scope._id).then(function(response) {
 				console.log("the addAnItem response ", response)
 			});
 			$scope.categoryItem = "";
@@ -65,7 +65,7 @@
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
 			$scope.items.splice(index, 1);
-			setItUpService.addAnItem($scope.items, $scope._id).then(function(response) {
+			theService.addAnItem($scope.items, $scope._id).then(function(response) {
 				// console.log("delete Item response ", response);
 			})
 			$scope.getStoredCategoryFromService();

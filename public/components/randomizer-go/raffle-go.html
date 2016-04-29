@@ -1,26 +1,34 @@
+<link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
 <div id="raffle-items">
-	<h3>Raffle Items</h3>
-	<h2>{{categoryNameRaffle}}</h2>
+	<h1 class="categroy_h1">Raffle Randomizer</h1>
 	
-	<button ng-click="categoriesShow()">Categories</button>
-	<button ng-click="goToInfinity()">Go To Infinity Randomizer</button>
+	<ul>
+		<li ng-click="categoriesShow()"><</li>
+		<li ng-click="goToInfinity()">Infinity Randomizer</li>
+		<li ng-click="raffle_reset()">REFRESH</li>
+	</ul>
 	<div>
 		<form>
-			<input class="shadow" type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
-			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
+			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
 		<button class="go_button" ng-click="raffle_randomize()">GO!</button>
-		<button ng-click="raffle_reset()">Reset</button>
+		
+		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameRaffle}}</span></h2> -->
+		<!-- <hr> -->
+		
 		<div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 		</div>
-		<table>
-			<tr ng-repeat="item in raffleItems track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
-				<td>
-					<button class="delete shadow" ng-click="deleteItem($index)">X</button>
-				</td>
-			</tr>
-		</table>
+		<div class="item-table-div">
+		<h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameRaffle}}</span></h2>
+			<table>
+				<tr ng-repeat="item in raffleItems track by $index">
+					<td class="item_table_column">{{item.itemName}}</td>
+					<td>
+						<button class="delete" ng-click="deleteItem($index)">X</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-app.service("setItUpService", ["$http", "$q", function($http, $q) {
+app.service("theService", ["$http", "$q", function($http, $q) {
 
 
 var storedCategory;

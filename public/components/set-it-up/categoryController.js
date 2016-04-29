@@ -1,6 +1,6 @@
 (function() {
-	var $inject = ["$scope", "$log", "setItUpService", "$timeout", "$state", "$stateParams"];
-	function setItUpControllerCB($scope, $log, setItUpService, $timeout, $state, $stateParams) {
+	var $inject = ["$scope", "$log", "theService", "$timeout", "$state", "$stateParams"];
+	function setItUpControllerCB($scope, $log, theService, $timeout, $state, $stateParams) {
 
 		/////////ADD CONTROLLER JAVASCRIPT BELOW////////
 		
@@ -13,8 +13,8 @@
 		$scope.raffle = function() {
 			var raffleTrue = true;
 			var infinityFalse = false;
-			setItUpService.trueOrFalse(raffleTrue, infinityFalse);
-			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			theService.trueOrFalse(raffleTrue, infinityFalse);
+			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
 			// console.log("raffleButton true ", $scope.raffleButton, "infinityButton false ", $scope.infinityButton);
@@ -22,14 +22,14 @@
 		$scope.infinity = function() {
 			var raffleFalse = false;
 			var infinityTrue = true;
-			setItUpService.trueOrFalse(raffleFalse, infinityTrue);
-			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			theService.trueOrFalse(raffleFalse, infinityTrue);
+			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
 			// console.log("raffleButton false ", $scope.raffleButton, "infinityButton true ", $scope.infinityButton);
 		}
 		$scope.automaticRestoreTheTrueOrFalse = function() {
-			$scope.returnedTrueOrFalse = setItUpService.returnTrueOrFalseObject();
+			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
 			if ($scope.returnedTrueOrFalse._param1 === true) {
 				$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 				$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
@@ -45,7 +45,7 @@
 
 		//The getCategories function calls to the database to retrieve any documents in the collection.
 		$scope.getCategories = function() {
-			setItUpService.getCategories().then(function(response) {
+			theService.getCategories().then(function(response) {
 				console.log("In controller, response from GET functions = ", response);
 				if(response.status === 200) {
 					$scope.categories = response.data;
@@ -67,8 +67,8 @@
 			} 
 			else {
 				// console.log("category name = ", categoryName);
-				setItUpService.makeACategoryObject(categoryName);
-				setItUpService.postCategoryObject().then(function(response) {
+				theService.makeACategoryObject(categoryName);
+				theService.postCategoryObject().then(function(response) {
 				});
 			}
 			$scope.categoryName = "";
@@ -92,7 +92,7 @@
 			$scope.category = category;
 			
 			function sendCategoryToService() {
-				setItUpService.storeCategoryInService(category);
+				theService.storeCategoryInService(category);
 			}
 			sendCategoryToService();
 			
@@ -118,9 +118,9 @@
 			var confirmDelete = confirm("Deleting will delete this category and ALL of its items!");
 			if (confirmDelete === false) {
 				return
-			}else if (confirmDelete === true) {
+			} else if (confirmDelete === true) {
 			var id = $scope.categories[index]._id;
-			setItUpService.deleteCategory(id).then(function(response) {
+			theService.deleteCategory(id).then(function(response) {
 				// console.log("category item deleted");
 			});
 			$scope.getCategories();
@@ -134,5 +134,5 @@
 	
 	}
 	setItUpControllerCB.$inject = $inject;
-	app.controller("setItUpController", setItUpControllerCB)
+	app.controller("categoryController", setItUpControllerCB)
 })();

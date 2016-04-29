@@ -1,3 +1,4 @@
+<style></style>
 <h1 class="categroy_h1">The Randomizer</h1>
 <div id="categories">
 	
@@ -11,14 +12,14 @@
 			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
 		</form>
 	</div>
-	<hr />
-	<div class="table_div">
-	<table ng-repeat="category in categories track by $index">
-		<tr>
-			<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
-			<td class="category_table_column_button"><button class="delete shadow" ng-click="deleteCategory($index)">X</button></td>
-		</tr>
-	</table>
+	<!-- <hr /> -->
+	<div class="category-table-div">
+		<table ng-repeat="category in categories track by $index">
+			<tr>
+				<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
+				<td class="category_table_column_button"><button class="delete shadow" ng-click="deleteCategory($index)"><!-- <img src="images/trashcan1.jpg" > -->X</button></td>
+			</tr>
+		</table>
 	</div>
 </div>
 

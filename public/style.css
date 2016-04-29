@@ -2,7 +2,7 @@ html body {
 	margin: 10px;
 	padding: 0;
 	font-family: sans-serif, serif;
-	background-color: #1b1918;
+	/*background-color: #1b1918;*/
 }
 
 form {
@@ -22,27 +22,70 @@ table {
 	border-spacing: 2px 2px;
 }
 
-.category_table_column {
-	background-color: green;
-	width: 100%;
-	height: 40px;
+ul {
+	margin: 0 0 0 5%;
+	padding: 5px;
+	border-radius: 4px;
+	border: solid 1px tan;
+
+}
+
+li {
+	display: inline-block;
+	padding-right: 5px;
+	background-color: tan;
 	color: white;
-	font-size: 1.3em;
-	padding-left: 10px;
 }
 
-.category_table_column_button {
-
+.category_table_column {
+	-moz-box-shadow:inset 1px 26px 0px -50px #ffffff;
+	-webkit-box-shadow:inset 1px 26px 0px -50px #ffffff;
+	box-shadow:inset 1px 26px 0px -50px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #d6d6d6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #d6d6d6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #d6d6d6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #d6d6d6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #d6d6d6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #d6d6d6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d6d6d6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #e0e0e0;
+	/*display:inline-block;*/
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:1.3em;
+	/*font-weight:bold;*/
+	/*padding:16px 76px;*/
+	text-decoration:none;
+	width: 100%;
+	padding-left: 15px;
 }
+
+.category_table_column:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d6d6d6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #d6d6d6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #d6d6d6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #d6d6d6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #d6d6d6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #d6d6d6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0);
+	background-color:#d6d6d6;
+}
+
+.category_table_column:active {
+	position:relative;
+	top:3px;
+}
+
 
 .item_table_column {
-
-	/*background-color: red;*/
-	/*width: 100%;*/
 	color: #333333;
-	
-	/*border-radius: 4px;*/
-	/*border-bottom: solid 1px #333333;*/
+	border-bottom: solid 1px black;
+	width: 100%;
 }
 
 .button {
@@ -50,14 +93,6 @@ table {
 	color: #fff;
 	background-color: tan;
 }
-
-/*.true-button {
-	color: green;
-}
-
-.false-button {
-	color: red;
-}*/
 
 #button-container {
 	margin: 0 0 10px 1px;
@@ -72,35 +107,68 @@ table {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;    
     font-size: 1.75em;
-    font-weight: 900;
+    font-weight: 600;
+    color: #333333;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+.items-input {
+	width: 38.4%;
+	height: 35px;
+	margin: 0 0 0 2px;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;    
+    font-size: 1.75em;
+    font-weight: 600;
+    color: #333333;
     padding: 4px 7px;
     outline: 0;
     -webkit-appearance: none;
 }
 
 .delete {
-	background-color: brown;
+	background-color: #fff;
 	color: #cccccc;
 	font-size: 1.3em;
 	height: 40px;
 	width: 40px;
+	padding-top: 6px;
+}
+
+.delete:active {
+	position: relative;
+	top: 3px;
+}
+
+.delete:hover {
+	background-color: #cc0000;
 }
 
 .go_button {
 	height: 30px;
 	background-color: orange;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 .random_item_result_div {
-	min-height: 70px;
-	margin-left: 2px;
-	border: solid #fff 1px;
+	width: 39.5%;
+	min-height: 100px;
+	margin: 10px 0 10px 0;
+	border: solid #cccccc 1px;
 	border-radius: 4px;
+	font-weight: 900;
 }
 
 h2#random_item_result {
 	color: brown;
-	font-size
+	font-size: 2em;
+	font-family: Cantarell;
+	padding: 0 0 0 0;
 }
 
 .categroy_h1 {
@@ -108,13 +176,32 @@ h2#random_item_result {
 	text-align: left;
 }
 
+#categoryNameSpan {
+	color: #333333;
+	font-weight: bold;
+}
+
+.go_button {
+		background-color: green;
+		border-radius: 4px;
+	}
+
+
+
+
+				/*PHONE SIZE*/
 @media only screen and (min-width: 15em) and (max-width: 30em) {
 	
 	.category_table_column {
 		width: 100%;
-		color: white;
 		font-size: 1.3em;
 		height: 50px;
+	}
+
+	.item_table_column {
+		width: 100%;
+		font-size: 1.3em;
+		height: 50%;
 	}
 
 	.delete {
@@ -125,6 +212,11 @@ h2#random_item_result {
 	.category-input {
 		width: 94%;
 		height: 40px;
+	}
+
+	.items-input {
+		width:94%;
+		height: 20px;
 	}
 
 	.button {
@@ -138,23 +230,42 @@ h2#random_item_result {
 		margin-bottom: 10px;
 	}
 
-	hr {
-		width: 98%;
-		margin: 10px 0 10px .5%;
+	.go_button {
+		width: 100%;
+		height: 50px;
 	}
 
 	.categroy_h1 {
 		text-align: center;
 	}
 
+	.random_item_result_div {
+		width: 99%;
+		margin: 10px 0 20px 0;
+	}
+
 }
 
 
-@media only screen and (min-width: 30em) and (max-width: 80em) {
+
+					/*TABLET SIZE*/
+@media only screen and (min-width: 30em) and (max-width: 60em) {
 	
 	table {
 		margin: 0 auto;
 		width: 80%;
+	}
+
+	.category_table_column {
+		width: 100%;
+		font-size: 1.3em;
+		height: 40px;
+	}
+
+	.item_table_column {
+		width: 100%;
+		font-size: 1.3em;
+		height: 50%;
 	}
 
 	.category-input {
@@ -163,36 +274,68 @@ h2#random_item_result {
 		height:40px;
 	}
 
-	#button-container {
-		margin: 0 0 10px 10.3%;
+	.items-input {
+		margin-left: 10.3%
+		width: 77.5%;
+		height: 40px;
 	}
 
-	hr {
-		margin: 10 0 10px 10.3%;
-		width: 79%;
+	#button-container {
+		margin: 0 0 10px 10.3%;
 	}
 
 	.categroy_h1 {
 		text-align: center;
 	}
 
+	.random_item_result_div {
+		width: 78.7%;
+		min-height: 100px;
+		margin: 10px 0 20px 10.3%;
+		/*margin-bottom: 40px;*/
+		border: solid black 1px;
+		border-radius: 4px;
+	}
+
+	h2#category-name {
+		margin: 0 0 0 10.3%;
+	}
+
+	.go_button {
+		width: 78.7%;
+		margin: 0 0 0 10.3%;
+	}
+
+	/*hr {
+		margin: 0 auto;
+		width: 78.7%;
+	}*/
+
+
+
 	
 }
 
-@media only screen and (min-width: 80em) {
 
-	.table_div {
+
+				/*REGULAR SCREEN*/
+@media only screen and (min-width: 60em) {
+
+	.category-table-div {
 		width: 40%;
 	}
 
-	.category-input {
-
+	.item-table-div {
+		width: 40%;
 	}
 
-	hr {
-		width: 39.4%;
-		margin-left: 2px;
-	}
-
-
+	/*hr {
+		margin: 0;
+		width: 36%;
+	}*/
 }
+
+
+
+
+

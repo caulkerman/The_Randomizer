@@ -1,7 +1,7 @@
-While a student at the Dev Mountain boot camp in Provo, I came up with the unoriginal idea of creating a random generator for my personal project using AngularJS.  It was a lot of fun worked perfectly but the finished product that I turned in was very clunky, not very responsive, and the UI wasn't very convenient.
+While a student at the Dev Mountain boot camp in Provo, I came up with the un-original idea of creating a random generator for my personal project using AngularJS.  It was a lot of fun and worked perfectly but the finished product that I turned in was very clunky, not very responsive, and the UI wasn't very convenient.
 See it at https://github.com/caulkerman/Personal-Project-Random-Generator
 
-This newest project, named The Randomizer, is a definate improvement of the previous project, it is fully responsive, and is simply, simply more usable.
+This newest project, named "The Randomizer", is a definate improvement of the previous project, it is fully responsive, and put simply, is simply more usable.
 
 The Randomizer allows the user to input categories such as "Places to Eat", or "People to Drug Test".  The user then clicks either the Raffle Style Randomizer or the Infinity Style Randomizer buttons and then selects the category of his/her choice.
 

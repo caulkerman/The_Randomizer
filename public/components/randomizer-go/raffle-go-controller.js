@@ -1,6 +1,6 @@
 (function() {
-	var $inject = ["$scope", "$log", "$state", "$stateParams", "setItUpService"];
-	function raffleGoControllerCB($scope, $log, $state, $stateParams, setItUpService) {
+	var $inject = ["$scope", "$log", "$state", "$stateParams", "theService"];
+	function raffleGoControllerCB($scope, $log, $state, $stateParams, theService) {
 
 
 			// ADD CONTROLLER JAVASCRIPT HERE //
@@ -21,7 +21,7 @@
 		//sent through the service again and the page not get stuck in error mode because the ._id 
 		//is undefined.
 		$scope.getStoredCategoryInService = function() {
-			var categoryNames = setItUpService.sendStoredCategoryInService();
+			var categoryNames = theService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 				$state.go("setItUp");
@@ -58,10 +58,10 @@
 			};
 			$scope.normalItems.unshift(itemsObject);
 			$scope.raffleItems.unshift(itemsObject);
-			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("the addAnItem response ", response)
 			});
-			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 
 			});
 
@@ -77,10 +77,10 @@
 		$scope.deleteItem = function(index) {
 			$scope.normalItems.splice(index, 1);
 			$scope.raffleItems.splice(index, 1);
-			setItUpService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
 				// console.log("delete Item response ", response);
 			});
-			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 
 			});
 			$scope.getStoredCategoryInService();
@@ -101,7 +101,7 @@
 					$scope.finalRandomItem = $scope.raffleItems[i];
 					// $scope.raffleItems.push($scope.finalRandomItem);
 					$scope.raffleItems.splice(i, 1);
-					setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+					theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 					});
 					
 					// console.log("the normalItems Array ", $scope.normalItems);
@@ -128,7 +128,7 @@
 					$scope.raffleItems.push($scope.normalItems[i]);
 				};
 			};
-			setItUpService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 				});
 		};
 
