@@ -2,11 +2,11 @@
 <div id="raffle-items">
 	<h1 class="categroy_h1">Raffle Randomizer</h1>
 	
-	<ul>
-		<li ng-click="categoriesShow()"><</li>
-		<li ng-click="goToInfinity()">Infinity Randomizer</li>
-		<li ng-click="raffle_reset()">REFRESH</li>
-	</ul>
+	
+		<button ng-click="categoriesShow()">CATEGORIES</button>
+		<button ng-click="goToInfinity()">INFINITY</button>
+		<button ng-click="raffle_reset()">REFRESH</button>
+	
 	<div>
 		<form>
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>

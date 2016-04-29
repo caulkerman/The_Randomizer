@@ -30,8 +30,9 @@ app.delete('/api/subject-items-Lists/:id', RandomCtrl.delete);
 
 // Connections
 var port = 9898;
-var mongoUri = 'mongodb://localhost:27017/the-randomizer';
-// var mongoUri = "mongodb://randy:earlobe1@ds033915.mongolab.com:33915/randystory"
+// var mongoUri = 'mongodb://localhost:27017/the-randomizer';
+var mLabsPassword = require("./api/mLabsPassword/mLabsPassword")
+var mongoUri = mLabsPassword.password;
 mongoose.set('debug', true);
 mongoose.connect(mongoUri);
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));

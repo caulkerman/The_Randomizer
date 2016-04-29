@@ -92,6 +92,7 @@ li {
 	height: 30px;
 	color: #fff;
 	background-color: tan;
+	border-radius: 4px;
 }
 
 #button-container {
