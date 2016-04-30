@@ -1,3 +1,4 @@
+"use strict"
 var app = angular.module("the_randomizer", ["ui.router", 'mp.autoFocus'])
 
 	app.config(function($stateProvider, $urlRouterProvider) {

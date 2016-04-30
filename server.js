@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 
 // Controllers
 var RandomCtrl = require('./api/controllers/ServerController');
-// var RaffleCtrl = require('./api/controllers/raffleServerController');
 
 // Express
 var app = express();

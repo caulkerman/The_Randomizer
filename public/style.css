@@ -185,7 +185,24 @@ h2#random_item_result {
 .go_button {
 		background-color: green;
 		border-radius: 4px;
+		color: #ffffff;
+		border-color: white;
 	}
+
+.go_button:active {
+	position: relative;
+	top: 5%;
+	left: 5px;
+	width: 96%;
+	height: 40px;
+	border-color: #004d00;
+	color: cyan;
+}
+
+.go_button_div {
+	height: 50px;
+	/*background-color: blue;*/
+}
 
 
 

@@ -11,8 +11,9 @@
 		<form>
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
-		<button class="go_button" ng-click="raffle_randomize()">GO!</button>
-		
+		<div class="go_button_div">
+			<button rw-click class="go_button" ng-click="raffle_randomize()">GO!</button>
+		</div>
 		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameRaffle}}</span></h2> -->
 		<!-- <hr> -->
 		
