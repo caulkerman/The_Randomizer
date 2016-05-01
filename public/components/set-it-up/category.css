@@ -7,11 +7,31 @@ html body {
 h1.category_h1 {
 	color: #e62a00;
 	font-size: 2.4em;
+	margin-bottom: 0;
+
 }
 
-.form-div {
-	width: 100%;
+div.button-container {
+	width: 97%;
 }
+
+button.select-button {
+	border-radius: 4px;
+	border: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	height: 40px;
+	color: #ffffff;
+	background-color: #5b8a0f;
+}
+
+button.select-button:hover {
+	background-color: #79b913;
+}
+
+/*div.form-div {
+	width: 100%;
+}*/
 
 input.category-input {
 	width: 97%;
@@ -32,24 +52,6 @@ input.category-input {
 div#categories {
 	width: 40%;
 	background-color: #ffffff;
-}
-
-form {
-	width: 100%;
-}
-
-button.select-button {
-	border-radius: 4px;
-	border: none;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	height: 25px;
-	color: #ffffff;
-	background-color: #5b8a0f;
-}
-
-button.select-button:hover {
-	background-color: #79b913;
 }
 
 h2.category-name {

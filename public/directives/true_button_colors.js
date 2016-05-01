@@ -19,7 +19,7 @@ app.directive("rwButtonColors", function() {
 				
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
-					// "width": "34%",
+					"padding": "4px 10px 0 10px",
 					"background-color": "#5b8a0f"
 				});		
 			});
@@ -30,7 +30,7 @@ app.directive("rwButtonColors", function() {
 				$("button#infinityButton")
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
-					// "width": "64%",
+					"padding": "0 10px 4px 10px",
 					"background-color": "#79b913"
 				});
 				
@@ -38,7 +38,7 @@ app.directive("rwButtonColors", function() {
 				
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
-					// "width": "34%",
+					// "padding": "4px 10px 0 10px",
 					"background-color": "#5b8a0f"
 				});
 			});
@@ -58,7 +58,7 @@ app.directive("rwButtonColors", function() {
 				$("button#infinityButton")
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
-					// "width": "34%",
+					"padding": "4px 10px 0 10px",
 					"background-color": "#5b8a0f"
 				});
 			};
@@ -67,7 +67,7 @@ app.directive("rwButtonColors", function() {
 				$("button#infinityButton")
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
-					// "width": "64%",
+					"padding": "0 10px 4px 10px",
 					"background-color": "#79b913"
 				});
 				

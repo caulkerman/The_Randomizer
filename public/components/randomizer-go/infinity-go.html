@@ -1,18 +1,19 @@
+<link rel="stylesheet" href="components/randomizer-go/items.css">
 <link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
 
-<div id="infinity-items">
-	<h1 class="categroy_h1">Infinity Randomizer</h1>
+<div id="items">
+	<h1 class="items_h1">Infinity Randomizer</h1>
 	
-	
-	<button ng-click="categoriesShow()">Categories</button>
-	<button ng-click="goToRaffle()">Go To Raffle Randomizer</button>
-	
+	<div id="button-container">
+		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
+		<button class="nav-button" id="go-to-infinity-button" ng-click="goToRaffle()">Go To Raffle Randomizer</button>
+	</div>
 	<div>
 		<form class="items-input-form">
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
 		<div class="go_button_div">
-			<button class="go_button" rw-click ng-click="infinity_randomize()">GO!</button>
+			<button class="go_button" id="infinity-go-button" rw-click ng-click="infinity_randomize()">GO!</button>
 		</div>
 		
 		<div class="random_item_result_div">
