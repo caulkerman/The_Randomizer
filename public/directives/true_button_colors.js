@@ -9,32 +9,37 @@ app.directive("rwButtonColors", function() {
 			$("button#raffleButton").on("click", function() {
 				
 				$("button#raffleButton")
-				.css({"color": "green",
-					"font-weight": "bold",
-					"background-color": "#fff"
+				.css({"color": "#FFFFFF",
+					"font-size": "1em",
+					// "width": "64%",
+					"background-color": "#79b913"
 				});
 				
 				$("button#infinityButton")
-				.css({"color": "gray",
-					"font-weight": "normal",
-					"background-color": "tan"
-				});
-			});		
-
+				
+				.css({"color": "#EEEEEE",
+					"font-size": ".6em",
+					// "width": "34%",
+					"background-color": "#5b8a0f"
+				});		
+			});
 			
 
 			$("button#infinityButton").on("click", function() {
 				
 				$("button#infinityButton")
-				.css({"color": "green",
-					"font-weight": "bold",
-					"background-color": "#fff"
+				.css({"color": "#FFFFFF",
+					"font-size": "1em",
+					// "width": "64%",
+					"background-color": "#79b913"
 				});
 				
 				$("button#raffleButton")
-				.css({"color": "gray",
-					"font-weight": "normal",
-					"background-color": "tan"
+				
+				.css({"color": "#EEEEEE",
+					"font-size": ".6em",
+					// "width": "34%",
+					"background-color": "#5b8a0f"
 				});
 			});
 
@@ -44,27 +49,33 @@ app.directive("rwButtonColors", function() {
 			
 			if ($scope.raffleButton === true) {
 				$("button#raffleButton")
-				.css({"color": "green",
-					"font-weight": "bold",
-					"background-color": "#fff"
+				.css({"color": "#FFFFFF",
+					"font-size": "1em",
+					// "width": "64%",
+					"background-color": "#79b913"
 				});
+				
 				$("button#infinityButton")
-				.css({"color": "gray",
-					"font-weight": "normal",
-					"background-color": "tan"
+				.css({"color": "#EEEEEE",
+					"font-size": ".6em",
+					// "width": "34%",
+					"background-color": "#5b8a0f"
 				});
 			};
 
 			if ($scope.infinityButton === true) {
 				$("button#infinityButton")
-				.css({"color": "green",
-					"font-weight": "bold",
-					"background-color": "#fff"
+				.css({"color": "#FFFFFF",
+					"font-size": "1em",
+					// "width": "64%",
+					"background-color": "#79b913"
 				});
+				
 				$("button#raffleButton")
-				.css({"color": "gray",
-					"font-weight": "normal",
-					"background-color": "tan"
+				.css({"color": "#EEEEEE",
+					"font-size": ".6em",
+					// "width": "34%",
+					"background-color": "#5b8a0f"
 				});
 			};
 		

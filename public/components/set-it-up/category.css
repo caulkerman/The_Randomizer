@@ -1,0 +1,182 @@
+html body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif, serif;
+}
+
+h1.category_h1 {
+	color: #e62a00;
+	font-size: 2.4em;
+}
+
+.form-div {
+	width: 100%;
+}
+
+input.category-input {
+	width: 97%;
+	height: 30px;
+	padding-left: 10px;
+	border-radius: 4px;
+	border: none;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	margin: 10px 0 10px 0;
+	color: #333333;
+	font-size: 1.3em;
+	-webkit-box-shadow: 0px 8px 17px 2px rgba(0,0,0,0.33);
+    -moz-box-shadow: 0px 8px 17px 2px rgba(0,0,0,0.33);
+	box-shadow: 0px 8px 17px 2px rgba(0,0,0,0.33);
+}
+
+div#categories {
+	width: 40%;
+	background-color: #ffffff;
+}
+
+form {
+	width: 100%;
+}
+
+button.select-button {
+	border-radius: 4px;
+	border: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	height: 25px;
+	color: #ffffff;
+	background-color: #5b8a0f;
+}
+
+button.select-button:hover {
+	background-color: #79b913;
+}
+
+h2.category-name {
+	color: #808080;
+	margin: 10px 0 10px 0;
+}
+
+div.category-table-div {
+	width: 100%;
+	height: 45px;
+}
+
+table {
+	width: 100%;
+	height: 40px;
+}
+
+td.category_table_column {
+	width: 100%;
+	height: 35px;
+	background-color: #80b3ff;
+	border-bottom: solid 4px #4d94ff;
+	border-right: solid 4px #4d94ff;
+	border-top: solid 4px #b3d1ff;
+	border-left: solid 4px #b3d1ff;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	color: #ffffff;
+	font-size: 1.2em;
+	padding-left: 5px;
+}
+
+td.category_table_column:hover {
+	background-color: #4d94ff;
+}
+
+td.category_table_column:active {
+	position: relative;
+	top: 3px;
+	font-size: 1.5em;
+}
+
+button.delete {
+	height: 43px;
+	width: 43px;
+	background-color: #ffffff;
+	color: #2F5FA6;
+	font-size: 1.2em;
+	border: solid 1px #cccccc;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+button.delete:hover {
+	background-color: #4d94ff;
+	color: #ffffff;
+} 
+
+button.delete:active {
+	position: relative;
+	background-color: #990000;
+	top: 3px;
+	font-size: 1.6em;
+}
+
+
+				/*SMARTPHONE SIZE SCREENS*/
+@media only screen and (min-width: 15em) and (max-width: 30em) {
+
+	h1.category_h1 {
+		text-align: center;
+	}
+
+	div#categories {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	div#button-container {
+		width: 98%;
+		margin: 0 auto;
+	}
+
+	button.select-button {
+		width: 49%;
+		height: 35px;
+	}
+
+	button#raffleButton {
+		float: left;
+	}
+
+	button#infinityButton {
+		float: right;
+	}
+
+	input.category-input {
+		margin-left: 2%;
+		width: 93%;
+		height: 50px;
+		font-size: 1.8em;
+		font-weight: bold;
+	}
+
+	button.delete {
+		height: 43px;
+		font-size: 1.3em;
+	}
+}
+
+
+
+				/*TABLET SIZE SCREENS*/
+@media only screen and (min-width: 30em) and (max-width: 60em) {
+
+	h1.category_h1 {
+		text-align: center;
+	}
+
+	div#categories {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	input.category-input {
+		height: 35px;
+	}
+}

@@ -1,76 +1,25 @@
-<style></style>
-<h1 class="categroy_h1">The Randomizer</h1>
+<link rel="stylesheet" href="components/set-it-up/category.css">
+<h1 class="category_h1">The Randomizer</h1>
 <div id="categories">
 	
 	<div id="button-container">
-		<button class="button" id="raffleButton" ng-model="raffleButton" ng-click="raffle()" rw-button-colors>Raffle Randomizer</button>
-		<button class="button" id="infinityButton" ng-model="infinityButton" ng-click="infinity()" rw-button-colors>Infinity Randomizer</button>
+		<button class="select-button" id="raffleButton" ng-model="raffleButton" ng-click="raffle()" rw-button-colors>Raffle Randomizer</button>
+		<button class="select-button" id="infinityButton" ng-model="infinityButton" ng-click="infinity()" rw-button-colors>Infinity Randomizer</button>
 	</div>
-	<div>
+	<div class="form-div">
 		<form>
-			<input type="text" ng-model="categoryName" class=" shadow category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)" auto-focus>
+			<input type="text" ng-model="categoryName" class="category-input" ng-keydown="$event.which === 13 && addACategory(categoryName)" auto-focus>
 			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
 		</form>
 	</div>
-	<!-- <hr /> -->
+	<h2 class="category-name">Categories:</h2>
 	<div class="category-table-div">
 		<table ng-repeat="category in categories track by $index">
 			<tr>
 				<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
-				<td class="category_table_column_button"><button class="delete shadow" ng-click="deleteCategory($index)"><!-- <img src="images/trashcan1.jpg" > -->X</button></td>
+				<td class="category_table_column_button"><button class="delete" ng-click="deleteCategory($index)"><!-- <img src="images/trashcan1.jpg" > -->X</button></td>
 			</tr>
 		</table>
 	</div>
 </div>
 
-<!-- <div id="infinity-items">
-	<h3>Infinity Items</h3>
-	<h2>{{categoryNameInfinity}}</h2>
-	
-	<p class="stays">Right now the result of clicking "GO" stays listed above until I refresh the page.  I will probably have to make html templates for this functionality. Also, where the result sits needs to be in a div so that the page does not jump and skip around.</p>
-	<button ng-click="categoriesShow()">Categories</button>
-	
-	<div>
-		<form>
-			<input type="text" placeholder="Name Your Infinity Items" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
-			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
-		</form>
-		<button class="go_button" ng-click="infinity_randomize()">GO!</button>
-		<div class="random_item_result_div">
-			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
-		</div>
-
-		<table>
-			<tr ng-repeat="item in categoryItems track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
-				<td>
-					<button class="delete" ng-click="deleteItem($index)">X</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-</div> -->
-
-
-<!-- <div id="raffle-items">
-	<h3>Raffle Items</h3>
-	<h2>{{categoryNameInfinity}}</h2>
-	{{finalRandomItem.itemName}}
-	<p class="stays">Right now the result of clicking "GO" stays listed above until I refresh the page.  I will probably have to make html templates for this functionality and have their own routes. Also, where the result sits needs to be in a div so that the page does not jump and skip around.</p>
-	<button ng-click="categoriesShow()">Categories</button>
-	<div>
-		<form>
-			<input type="text" placeholder="Name Your Category" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
-			<input type="button" value="Add An Item" ng-click="addAnItem(categoryItem)">
-		</form>
-
-		<table>
-			<tr ng-repeat="item in categoryItems track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
-				<td>
-					<button class="delete" ng-click="deleteItem($index)">X</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-</div> -->

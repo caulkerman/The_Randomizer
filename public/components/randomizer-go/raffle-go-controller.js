@@ -32,13 +32,6 @@
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
-			
-			// var itemsLength = $scope.normalItems.length;
-			// for(var i = 0; i < itemsLength; i++) {
-			// 	if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
-			// 		$scope.raffleItems.push($scope.normalItems[i]);
-			// 	};
-			// };
 		}
 		$scope.getStoredCategoryInService();
 
@@ -53,8 +46,7 @@
 			}
 			else {
 			var itemsObject = {
-				itemName: itemName,
-				// itemShow: true
+				itemName: itemName
 			};
 			$scope.normalItems.unshift(itemsObject);
 			$scope.raffleItems.unshift(itemsObject);
@@ -88,10 +80,8 @@
 
 
 		
-		//The raffle_randomize function uses Math.random and a for loop to choose an item name at random.
-		//The item name is then  pushed to the raffleItems array as a backup copy while the normalItems
-		//array has that chosen item name spliced from it.  Both arrays are sent to the database for updating
-		//independently of each other.
+		//The raffle_randomize function uses Math.random and a for loop to choose an item name at random
+		//from the raffleItems array.  As the array is changed the change is updated in the database.
 		$scope.raffle_randomize = function() {
 			
 			var itemsLength = $scope.raffleItems.length;
@@ -114,9 +104,7 @@
 
 		
 
-		//The raffle_reset function uses a for loop and pushes each item name from the raffleItems array
-		//back to the normalItems array.  Then another for loop loops over the raffleItems array and deletes
-		//each item using the .pop() method.  The arrays are then updated in the database.
+		//The raffle_reset function pops out every item from the raffleItems array. 
 		$scope.raffle_reset = function() {
 			// debugger
 			for (var i = 0; i = $scope.raffleItems.length; i++) {
@@ -124,9 +112,9 @@
 			}
 			var itemsLength = $scope.normalItems.length;
 			for(var i = 0; i < itemsLength; i++) {
-				if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
+				// if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
 					$scope.raffleItems.push($scope.normalItems[i]);
-				};
+				// };
 			};
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 				});

@@ -5,13 +5,7 @@
 		
 			//  CONTROLLER CODE HERE  //
 
-		// var audio = $("#clickSound")[0];
-		// $(".click").on("click", function() {
-		// 	console.log("Controller, it is supposed to make a sound");
-  // 			audio.play();
-		// });
-
-
+		
 		//The categoriesShow function is a button that takes the user back to the categories page.
 		$scope.categoriesShow = function() {
 			$state.go("setItUp");

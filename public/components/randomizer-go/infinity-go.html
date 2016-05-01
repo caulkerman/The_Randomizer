@@ -8,17 +8,17 @@
 	<button ng-click="goToRaffle()">Go To Raffle Randomizer</button>
 	
 	<div>
-		<form>
+		<form class="items-input-form">
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
 		<div class="go_button_div">
 			<button class="go_button" rw-click ng-click="infinity_randomize()">GO!</button>
 		</div>
-		<h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2>
+		
 		<div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 		</div>
-		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2> -->
+		<h2 class="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2>
 		<!-- <hr> -->
 		<div class="item-table-div">
 			<table>
