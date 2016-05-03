@@ -1,8 +1,14 @@
 <!-- <link rel="stylesheet" href="components/randomizer-go/items.css"> -->
 <link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
-<div id="items" class="ng-cloak">
+
+<header class="raffle-header">
 	<h1 class="items_h1">Raffle Randomizer</h1>
+</header>
+
+<div id="items" class="ng-cloak">
 	
+	
+
 	<div id="button-container">
 		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
 		<button class="nav-button" id="go-to-infinity-button" ng-click="goToInfinity()">Go to Infinity Randomizer</button>
@@ -19,7 +25,7 @@
 	</div>
 
 	<div class="go_button_div">
-		<button class="go_button" id="raffle-go-button" rw-click ng-click="raffle_randomize()">GO!</button>
+		<button class="go_button" id="raffle-go-button" rw-click ng-click="raffle_randomize()">RANDOMIZE!</button>
 		<button id="refresh-button" ng-click="raffle_reset()">REFRESH</button>
 	</div>
 		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameRaffle}}</span></h2> -->
@@ -28,7 +34,7 @@
 	<!-- <div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 	</div> -->
-	<h2 class="category-name"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameRaffle}}</span> Items</h2>
+	<h2 class="category-name"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameRaffle}}</span></h2>
 	<div class="item-table-div">
 		
 		<table>

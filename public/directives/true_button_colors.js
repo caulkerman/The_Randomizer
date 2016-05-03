@@ -11,16 +11,15 @@ app.directive("rwButtonColors", function() {
 				$("button#raffleButton")
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
-					// "width": "64%",
-					"background-color": "#5fe21d"
+					"background-color": "#003366"
 				});
 				
 				$("button#infinityButton")
 				
-				.css({"color": "#EEEEEE",
-					"font-size": ".6em",
+				.css({"color": "#333333",
+					"font-size": ".8em",
 					"padding": "4px 10px 0 10px",
-					"background-color": "#ff3333"
+					"background-color": "#FFFFFF"
 				});		
 			});
 			
@@ -31,15 +30,14 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					"padding": "0 10px 4px 10px",
-					"background-color": "#ff6666"
+					"background-color": "#003366"
 				});
 				
 				$("button#raffleButton")
 				
-				.css({"color": "#EEEEEE",
-					"font-size": ".6em",
-					// "padding": "4px 10px 0 10px",
-					"background-color": "#4bb217"
+				.css({"color": "#333333",
+					"font-size": ".8em",
+					"background-color": "#FFFFFF"
 				});
 			});
 
@@ -51,15 +49,14 @@ app.directive("rwButtonColors", function() {
 				$("button#raffleButton")
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
-					// "width": "64%",
-					"background-color": "#5fe21d"
+					"background-color": "#003366"
 				});
 				
 				$("button#infinityButton")
-				.css({"color": "#EEEEEE",
-					"font-size": ".6em",
+				.css({"color": "#333333",
+					"font-size": ".8em",
 					"padding": "4px 10px 0 10px",
-					"background-color": "#ff3333"
+					"background-color": "#FFFFFF"
 				});
 			};
 
@@ -68,14 +65,13 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					"padding": "0 10px 4px 10px",
-					"background-color": "#ff6666"
+					"background-color": "#003366"
 				});
 				
 				$("button#raffleButton")
-				.css({"color": "#EEEEEE",
-					"font-size": ".6em",
-					// "width": "34%",
-					"background-color": "#4bb217"
+				.css({"color": "#333333",
+					"font-size": ".8em",
+					"background-color": "#FFFFFF"
 				});
 			};
 		

@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="components/randomizer-go/items.css">
 <link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
 
-<div id="items" class="ng-cloak">
+<header class="infinity-header">
 	<h1 class="items_h1">Infinity Randomizer</h1>
+</header>
+
+<div id="items" class="ng-cloak">
+
 	
 	<div id="button-container" class="ng-cloak">
 		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
@@ -18,11 +22,11 @@
 		</div>
 		
 		<div class="go_button_div ng-cloak">
-			<button class="go_button" id="infinity-go-button" rw-click ng-click="infinity_randomize()">GO!</button>
+			<button class="go_button" id="infinity-go-button" rw-click ng-click="infinity_randomize()">RANDOMIZE!</button>
 		</div>
 		
 		
-		<h2 class="category-name ng-cloak"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameInfinity}} Items</span></h2>
+		<h2 class="category-name ng-cloak"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameInfinity}}</span></h2>
 		<!-- <hr> -->
 		<div class="item-table-div ng-cloak">
 			<table>
