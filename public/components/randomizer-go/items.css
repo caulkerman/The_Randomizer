@@ -4,6 +4,10 @@ html body {
 	font-family: sans-serif, serif;
 }
 
+.ng-cloak {
+	display: none !important;
+}
+
 p {
 	margin: 0;
 	padding: 0;
@@ -20,20 +24,50 @@ h1.items_h1 {
 	margin-bottom: 0;
 }
 
-button.nav-button {
+button#categories-button {
 	border-radius: 4px;
 	border: none;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	height: 40px;
 	color: #FFFFFF;
-	background-color: #9C763B;
-	margin: 0 0 5px 0;
+	background-color: #80b3ff;
+	margin: 10px 0 5px 0;
 }
 
-button.nav-button:hover {
-	background-color: #c09759;
-	/*border: #9C763B solid 1px;*/
+button#categories-button:hover {
+	background-color: #4d94ff;
+}
+
+button#go-to-raffle-button {
+	border-radius: 4px;
+	border: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	height: 40px;
+	color: #FFFFFF;
+	background-color: #4bb217;
+	margin: 10px 0 5px 0;
+}
+
+button#go-to-raffle-button:hover {
+	background-color: #398712;
+	/*#55cb1a*/
+}
+
+button#go-to-infinity-button {
+	border-radius: 4px;
+	border: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	height: 40px;
+	color: #FFFFFF;
+	background-color: #ff3333;
+	margin: 10px 0 5px 0;
+}
+
+button#go-to-infinity-button:hover {
+	background-color: #FF6666;
 }
 
 div.form-div {
@@ -62,14 +96,24 @@ div.go_button_div {
 }
 
 button#infinity-go-button {
-	background-color: green;
+	background-color: #ff3333;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	border: none;
-	height: 50px;
+	height: 70px;
+	width: 99%;
 	margin: 15px 0 10px 0;
 	color: #ffffff;
+}
+
+button#infinity-go-button:active {
+	position: relative;
+	left: 3px;
+	width: 95%;
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: #FF6666;
 }
 
 button#raffle-go-button {
@@ -83,6 +127,15 @@ button#raffle-go-button {
 	height: 70px;
 	color: #ffffff;
 }
+
+button#raffle-go-button:active {
+	position: relative;
+	left: 3px;
+	width: 73%;
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: #4BB217;
+	}
 
 button#refresh-button {
 	height: 30px;
@@ -103,13 +156,8 @@ h2.category-name {
 }
 
 div.random_item_result_div {
-	/*border: 1px solid black;*/
 	margin: 0 auto;
 	height: 70px;
-	/*margin: 0 0 0 1%;*/
-	/*width: 97%;*/
-	
-	/*padding: 0 0 0 0;*/
 }
 
 p#random_item_result {
@@ -119,20 +167,18 @@ p#random_item_result {
 	padding: 10px 0 0 10px;
 }
 
-
-
-/*infinity Randomizer*/
-/*dark green #4BB217*/
-/*middle green #7DFF3B*/
-/*light green #8EFF54	*/
-/*darkk purple #B23DB1*/
-/*light purple #FF81FD*/
-
-
-td.item_table_column {
+td.infinity-item-table-column {
 	width: 100%;
 	height: 35px;
-	background-color: #FFFFFf;
+	background-color: #FFFFFF;
+	border-bottom: #333333 solid 1px;
+	color: #ff3333;
+}
+
+td.raffle-item-table-column {
+	width: 100%;
+	height: 35px;
+	background-color: #FFFFFF;
 	border-bottom: #333333 solid 1px;
 	color: #4BB217;
 }
@@ -160,6 +206,28 @@ button.raffle-items-delete:active {
 	background-color: #990000;
 }
 
+button.infinity-items-delete {
+	height: 35px;
+	width: 35px;
+	background-color: #FFFFFF;
+	color: #ff3333;
+	border: solid 1px #cccccc;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+button.infinity-items-delete:hover {
+	background-color: #ff3333;
+	color: #FFFFFF;
+}
+
+button.infinity-items-delete:active {
+	position: relative;
+	color: #FFFFFF;
+	top: 3px;
+	background-color: #990000;
+}
 
 
 
@@ -189,6 +257,10 @@ button.raffle-items-delete:active {
 		float: right;
 	}
 
+	button#go-to-raffle-button {
+		float: right;
+	}
+
 	div#button-container {
 		width: 90%;
 		margin: 0 auto;
@@ -210,10 +282,22 @@ button.raffle-items-delete:active {
 
 	button#infinity-go-button {
 		width: 95.5%;
+		margin-left: 2%;
 	}
 
 	button#raffle-go-button {
 		width: 65%;
+	}
+
+	button#raffle-go-button:active {
+		width: 60%;
+		/*height: 63px;*/
+	}
+
+	button#infinity-go-button:active {
+		position: relative;
+		left: 7px;
+		width: 93%;
 	}
 
 

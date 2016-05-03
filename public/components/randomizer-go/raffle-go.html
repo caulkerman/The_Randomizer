@@ -1,6 +1,6 @@
 <!-- <link rel="stylesheet" href="components/randomizer-go/items.css"> -->
 <link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
-<div id="items">
+<div id="items" class="ng-cloak">
 	<h1 class="items_h1">Raffle Randomizer</h1>
 	
 	<div id="button-container">
@@ -14,8 +14,8 @@
 		</form>
 	</div>
 
-	<div class="random_item_result_div">
-			<p id="random_item_result">{{finalRandomItem.itemName}}</p>
+	<div class="random_item_result_div ng-cloak">
+			<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
 	</div>
 
 	<div class="go_button_div">
@@ -28,12 +28,12 @@
 	<!-- <div class="random_item_result_div">
 			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
 	</div> -->
-	<h2 class="category-name"><span id="categoryNameSpan">{{categoryNameRaffle}}</span> Items</h2>
+	<h2 class="category-name"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameRaffle}}</span> Items</h2>
 	<div class="item-table-div">
 		
 		<table>
 			<tr ng-repeat="item in raffleItems track by $index">
-				<td class="item_table_column">{{item.itemName}}</td>
+				<td class="raffle-item-table-column">{{item.itemName}}</td>
 				<td>
 					<button class="raffle-items-delete" ng-click="deleteItem($index)">X</button>
 				</td>

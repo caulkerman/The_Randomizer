@@ -1,32 +1,35 @@
 <link rel="stylesheet" href="components/randomizer-go/items.css">
 <link href='https://fonts.googleapis.com/css?family=Cantarell:700italic,400italic' rel='stylesheet' type='text/css'>
 
-<div id="items">
+<div id="items" class="ng-cloak">
 	<h1 class="items_h1">Infinity Randomizer</h1>
 	
-	<div id="button-container">
+	<div id="button-container" class="ng-cloak">
 		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
-		<button class="nav-button" id="go-to-infinity-button" ng-click="goToRaffle()">Go To Raffle Randomizer</button>
+		<button class="nav-button" id="go-to-raffle-button" ng-click="goToRaffle()">Go To Raffle Randomizer</button>
 	</div>
 	<div>
-		<form class="items-input-form">
+		<form class="items-input-form ng-cloak">
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
 		</form>
-		<div class="go_button_div">
+
+		<div class="random_item_result_div ng-cloak">
+			<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
+		</div>
+		
+		<div class="go_button_div ng-cloak">
 			<button class="go_button" id="infinity-go-button" rw-click ng-click="infinity_randomize()">GO!</button>
 		</div>
 		
-		<div class="random_item_result_div">
-			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
-		</div>
-		<h2 class="category-name">Category: <span id="categoryNameSpan">{{categoryNameInfinity}}</span></h2>
+		
+		<h2 class="category-name ng-cloak"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameInfinity}} Items</span></h2>
 		<!-- <hr> -->
-		<div class="item-table-div">
+		<div class="item-table-div ng-cloak">
 			<table>
 				<tr ng-repeat="item in items track by $index">
-					<td class="item_table_column">{{item.itemName}}</td>
+					<td class="infinity-item-table-column">{{item.itemName}}</td>
 					<td>
-						<button class="delete" ng-click="deleteItem($index)">X</button>
+						<button class="infinity-items-delete" ng-click="deleteItem($index)">X</button>
 					</td>
 				</tr>
 			</table>

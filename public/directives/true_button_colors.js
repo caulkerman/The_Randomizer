@@ -12,7 +12,7 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					// "width": "64%",
-					"background-color": "#79b913"
+					"background-color": "#5fe21d"
 				});
 				
 				$("button#infinityButton")
@@ -20,7 +20,7 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
 					"padding": "4px 10px 0 10px",
-					"background-color": "#5b8a0f"
+					"background-color": "#ff3333"
 				});		
 			});
 			
@@ -31,7 +31,7 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					"padding": "0 10px 4px 10px",
-					"background-color": "#79b913"
+					"background-color": "#ff6666"
 				});
 				
 				$("button#raffleButton")
@@ -39,7 +39,7 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
 					// "padding": "4px 10px 0 10px",
-					"background-color": "#5b8a0f"
+					"background-color": "#4bb217"
 				});
 			});
 
@@ -52,14 +52,14 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					// "width": "64%",
-					"background-color": "#79b913"
+					"background-color": "#5fe21d"
 				});
 				
 				$("button#infinityButton")
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
 					"padding": "4px 10px 0 10px",
-					"background-color": "#5b8a0f"
+					"background-color": "#ff3333"
 				});
 			};
 
@@ -68,14 +68,14 @@ app.directive("rwButtonColors", function() {
 				.css({"color": "#FFFFFF",
 					"font-size": "1em",
 					"padding": "0 10px 4px 10px",
-					"background-color": "#79b913"
+					"background-color": "#ff6666"
 				});
 				
 				$("button#raffleButton")
 				.css({"color": "#EEEEEE",
 					"font-size": ".6em",
 					// "width": "34%",
-					"background-color": "#5b8a0f"
+					"background-color": "#4bb217"
 				});
 			};
 		
