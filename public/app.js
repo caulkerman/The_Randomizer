@@ -4,15 +4,15 @@ var app = angular.module("the_randomizer", ["ui.router", 'mp.autoFocus'])
 	app.config(function($stateProvider, $urlRouterProvider) {
   
   // For any unmatched url, redirect to /landing-page
-  // $urlRouterProvider.otherwise("/landing-page");
+  $urlRouterProvider.otherwise("/set-it-up-and-play");
   
   $stateProvider
     
-    .state('landing-page', {
-      url: "/landing-page",
-      templateUrl: "components/landing-page/landing-page.html",
-      controller: "landingPageController"
-    })
+    // .state('landing-page', {
+    //   url: "/landing-page",
+    //   templateUrl: "components/landing-page/landing-page.html",
+    //   controller: "landingPageController"
+    // })
     
     .state('setItUp', {
       url: "/set-it-up-and-play",
