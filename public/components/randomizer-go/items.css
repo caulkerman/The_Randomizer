@@ -15,14 +15,16 @@ p {
 
 header.raffle-header {
 	margin: 0 0 10px 0;
-	height: 60px;
+	padding: 0 0 10px 0;
+	/*height: 60px;*/
 	width: 100%;
 	background-color: #330000;
 }
 
 header.infinity-header {
 	margin: 0 0 10px 0;
-	height: 60px;
+	padding: 0 0 10px 0;
+	/*height: 60px;*/
 	width: 100%;
 	background-color: #001a00;
 }
@@ -126,7 +128,7 @@ button#infinity-go-button {
 
 button#infinity-go-button:active {
 	position: relative;
-	left: 3px;
+	left: 6px;
 	width: 97%;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -147,7 +149,7 @@ button#raffle-go-button {
 
 button#raffle-go-button:active {
 	position: relative;
-	left: 3px;
+	left: 6px;
 	width: 73%;
 	font-size: 1.2em;
 	font-weight: bold;
