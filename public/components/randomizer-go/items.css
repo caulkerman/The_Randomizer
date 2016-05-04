@@ -4,6 +4,11 @@ html body {
 	font-family: sans-serif, serif;
 }
 
+a.refresh-link {
+	text-decoration: none;
+	color: inherit;
+}
+
 p {
 	margin: 0;
 	padding: 0;
@@ -165,6 +170,10 @@ button#refresh-button {
 	border: none;
 	margin: 35px 0 10px 0;
 	float: right;
+	color: #00cc44;
+}
+
+button#refresh-button:hover {
 	color: #330000;
 }
 

@@ -6,12 +6,12 @@
 </header>
 
 <div id="items" class="ng-cloak">
-
 	
 	<div id="button-container" class="ng-cloak">
 		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
 		<button class="nav-button" id="go-to-raffle-button" ng-click="goToRaffle()">Go To Raffle Randomizer</button>
 	</div>
+	
 	<div>
 		<form class="items-input-form ng-cloak">
 			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
@@ -27,7 +27,7 @@
 		
 		
 		<h2 class="category-name ng-cloak"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameInfinity}}</span></h2>
-		<!-- <hr> -->
+		
 		<div class="item-table-div ng-cloak">
 			<table>
 				<tr ng-repeat="item in items track by $index">
@@ -38,5 +38,7 @@
 				</tr>
 			</table>
 		</div>
+	
 	</div>
+
 </div>

@@ -1,8 +1,6 @@
-<!-- <link rel="stylesheet" href="components/set-it-up/category.css"> -->
-
 <header class="category-header">
-		<h1 class="category_h1">The Randomizer</h1>
-	</header>
+	<h1 class="category_h1">The Randomizer</h1>
+</header>
 
 
 <div id="categories" class="ng-cloak">
@@ -11,20 +9,23 @@
 		<button class="select-button" id="raffleButton" ng-model="raffleButton" ng-click="raffle()" rw-button-colors>Raffle Randomizer</button>
 		<button class="select-button" id="infinityButton" ng-model="infinityButton" ng-click="infinity()" rw-button-colors>Infinity Randomizer</button>
 	</div>
+	
 	<div class="form-div">
 		<form>
 			<input type="text"  class="category-input" ng-model="categoryName" ng-keydown="$event.which === 13 && addACategory(categoryName)" auto-focus>
-			<!-- <button  ng-click="addACategory(categoryName)">Save Your Category</button> -->
 		</form>
 	</div>
+	
 	<h2 class="category-name">Categories</h2>
+	
 	<div class="category-table-div">
 		<table ng-repeat="category in categories track by $index">
 			<tr>
 				<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
-				<td class="category_table_column_button"><button class="category-delete" ng-click="deleteCategory($index)"><!-- <img src="images/trashcan1.jpg" > -->X</button></td>
+				<td class="category_table_column_button"><button class="category-delete" ng-click="deleteCategory($index)">X</button></td>
 			</tr>
 		</table>
 	</div>
+
 </div>
 

@@ -7,8 +7,6 @@
 
 <div id="items" class="ng-cloak">
 	
-	
-
 	<div id="button-container">
 		<button class="nav-button" id="categories-button" ng-click="categoriesShow()">Categories</button>
 		<button class="nav-button" id="go-to-infinity-button" ng-click="goToInfinity()">Go to Infinity Randomizer</button>
@@ -21,22 +19,17 @@
 	</div>
 
 	<div class="random_item_result_div ng-cloak">
-			<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
+		<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
 	</div>
 
 	<div class="go_button_div">
 		<button class="go_button" id="raffle-go-button" rw-click ng-click="raffle_randomize()">RANDOMIZE!</button>
-		<button id="refresh-button" ng-click="raffle_reset()">REFRESH</button>
+		<button id="refresh-button" ng-click="raffle_reset()"><a href="" class="refresh-link">REFRESH</a></button>
 	</div>
-		<!-- <h2 id="category-name">Category: <span id="categoryNameSpan">{{categoryNameRaffle}}</span></h2> -->
-		<!-- <hr> -->
-		
-	<!-- <div class="random_item_result_div">
-			<h2 id="random_item_result">{{finalRandomItem.itemName}}</h2>
-	</div> -->
+	
 	<h2 class="category-name"><span id="categoryNameSpan" class="ng-cloak">{{categoryNameRaffle}}</span></h2>
+	
 	<div class="item-table-div">
-		
 		<table>
 			<tr ng-repeat="item in raffleItems track by $index">
 				<td class="raffle-item-table-column">{{item.itemName}}</td>
@@ -46,4 +39,5 @@
 			</tr>
 		</table>
 	</div>
+
 </div>
