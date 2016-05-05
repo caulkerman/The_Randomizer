@@ -1,17 +1,12 @@
 {
   "name": "the_randomizer",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+  "homepage": "https://github.com/caulkerman/The_Randomizer",
   "authors": [
     "caulkerman <ih8blackwidowspiders@yahoo.com>"
   ],
-  "license": "ISC",
-  "moduleType": [],
-  "homepage": "",
+  "description": "",
+  "main": "",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",

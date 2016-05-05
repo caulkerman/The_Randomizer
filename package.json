@@ -1,24 +1,27 @@
 {
   "name": "the_randomizer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A remake of the original personal project randomizer app that I made while at Dev Mountain with styling changes",
   "main": "server.js",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0",
+    "mongoose": "^4.4.7"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
-
-  "dependencies": {
-    
-    "body-parser": "^1.13.3",
-    
-    "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "mongodb": "^2.0.44",
-    "mongodb-uri": "^0.9.7",
-    "mongoose": "^4.1.6"
-   
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caulkerman/The_Randomizer.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caulkerman/The_Randomizer/issues"
+  },
+  "homepage": "https://github.com/caulkerman/The_Randomizer#readme"
 }
