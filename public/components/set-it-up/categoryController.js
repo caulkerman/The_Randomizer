@@ -13,7 +13,9 @@
 		$scope.raffle = function() {
 			var raffleTrue = true;
 			var infinityFalse = false;
+			
 			theService.trueOrFalse(raffleTrue, infinityFalse);
+			
 			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
@@ -22,7 +24,9 @@
 		$scope.infinity = function() {
 			var raffleFalse = false;
 			var infinityTrue = true;
+			
 			theService.trueOrFalse(raffleFalse, infinityTrue);
+			
 			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
 			$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 			$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
@@ -30,15 +34,18 @@
 		}
 		$scope.automaticRestoreTheTrueOrFalse = function() {
 			$scope.returnedTrueOrFalse = theService.returnTrueOrFalseObject();
+			
 			if ($scope.returnedTrueOrFalse._param1 === true) {
 				$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 				$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
 			}
+			
 			if ($scope.returnedTrueOrFalse._param1 === false) {
 				$scope.raffleButton = $scope.returnedTrueOrFalse._param1;
 				$scope.infinityButton = $scope.returnedTrueOrFalse._param2;
 			}
 		}
+		
 		$scope.automaticRestoreTheTrueOrFalse();
 
 		
@@ -66,11 +73,11 @@
 				return;
 			} 
 			else {
-				// console.log("category name = ", categoryName);
-				theService.makeACategoryObject(categoryName);
-				theService.postCategoryObject().then(function(response) {
+				
+				theService.postCategoryObject(categoryName).then(function(response) {
 				});
 			}
+			
 			$scope.categoryName = "";
 			$scope.getCategories();
 		};
@@ -116,22 +123,25 @@
 		//it off to the database to be deleted.
 		$scope.deleteCategory = function(index) {
 			var confirmDelete = confirm("Deleting will delete this category and ALL of its items!");
+			
 			if (confirmDelete === false) {
 				return
-			} else if (confirmDelete === true) {
+			} 
+			
+			if (confirmDelete === true) {
 			var id = $scope.categories[index]._id;
+			
 			theService.deleteCategory(id).then(function(response) {
-				// console.log("category item deleted");
+
+				$scope.categories = response.data;
 			});
+			
 			$scope.getCategories();
+			
 			};
 		};
 
 
-
-
-
-	
 	}
 	setItUpControllerCB.$inject = $inject;
 	app.controller("categoryController", setItUpControllerCB)

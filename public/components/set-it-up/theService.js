@@ -6,19 +6,11 @@ var categoryObject = {};
 var trueOrFalseObject = {}
 
 
-//makeACategoryObject function takes the categoryName parameter from 
-//setItUpController and assigns the properties to the categoryObject 
-//object already defined at page load.
-this.makeACategoryObject = function(categoryName) {
+//postCategoryObject function posts the categoryObject object to the database.
+this.postCategoryObject = function(categoryName) {
 	categoryObject.name = categoryName;
 	categoryObject.items = {};
-	console.log("In the service the newly created object ", categoryObject);
-};
 
-
-
-//postCategoryObject function posts the categoryObject object to the database.
-this.postCategoryObject = function() {
 	var deferred = $q.defer();
 	$http({
 		method: "POST",
@@ -26,7 +18,6 @@ this.postCategoryObject = function() {
 		data: categoryObject
 	}).then(function(response) {
 		deferred.resolve(response);
-		// console.log("response in the service = ", response);
 	});
 	return deferred.promise;
 };
@@ -40,7 +31,6 @@ this.getCategories = function() {
 		method: "GET",
 		url: '/api/subject-items-Lists'
 	}).then(function(response) {
-		// console.log("GET response in service = ", response);
 		deferred.resolve(response);
 	});
 	return deferred.promise;
@@ -51,14 +41,12 @@ this.getCategories = function() {
 //The addAnItem serves to PUT new items onto the categoryObject during update.  
 //This function is also used in the app whenever an update is needed.
 this.addAnItem = function(itemName, id) {
-	console.warn("In service, the item ", typeof itemName, "and the id ", id);
 	var deferred = $q.defer();
 	$http({
 		method: "PUT",
 		url: '/api/subject-items-Lists/' + id,
 		data: itemName
 	}).then(function(response) {
-		// console.log("In service, items updated", response)
 		deferred.resolve(response);
 	});
 	return deferred.promise;
@@ -87,7 +75,6 @@ this.deleteCategory = function(id) {
 		method: "DELETE",
 		url: '/api/subject-items-Lists/' + id,
 	}).then(function(response) {
-		// console.log("deleted inside the service", response);
 		deferred.resolve(response);
 	});
 	return deferred.promise;
@@ -113,7 +100,6 @@ this.sendStoredCategoryInService = function() {
 this.trueOrFalse = function(param1, param2) {
 	trueOrFalseObject._param1 = param1,
 	trueOrFalseObject._param2 = param2
-	// console.log("trueOrFalse object in service ", trueOrFalseObject)
 }
 
 this.returnTrueOrFalseObject = function() {

@@ -18,17 +18,23 @@
 		//category object saved there, the specific object is not retrieved from the database 
 		//but from the service.  If the user refreshes the page all $scope variables are 
 		//undefined so I send the user back to the category page so the category data can be 
-		//sent through the service again and the page not get stuck in error mode because the ._id 
-		//is undefined.
+		//sent through the service again and the page not get stuck in error mode because the ._id
+		//or name property is undefined.  
+
+		//One way, perhaps, that I could have avoided this is to send the properties
+		//of the categories object through to another controller via routing in app.js using 
+		//$stateParams by adding the category properties to the $stateParams.  Although I get 
+		//an error in the console, and I have to re-rout back to the categories page, I want 
+		//the entire object intact.
 		$scope.getStoredCategoryInService = function() {
 			var categoryNames = theService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
 				$state.go("setItUp");
 			}
+			
 			$scope.categoryNameRaffle = categoryNames.name;
 			console.log("The Names object from service ", $scope.categoryNameRaffle);
-			// console.log("The categoryNames object from service ",categoryNames);
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;
@@ -48,13 +54,14 @@
 			var itemsObject = {
 				itemName: itemName
 			};
+			
 			$scope.normalItems.unshift(itemsObject);
 			$scope.raffleItems.unshift(itemsObject);
+			
 			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
-				// console.log("the addAnItem response ", response)
 			});
+			
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
-
 			});
 
 			$scope.categoryItem = "";
@@ -67,11 +74,12 @@
 		//Obviously to splice out the particular item in the items array and get the 
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
+			
 			$scope.normalItems.splice(index, 1);
-			$scope.raffleItems.splice(index, 1);
 			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
-				// console.log("delete Item response ", response);
 			});
+
+			$scope.raffleItems.splice(index, 1);
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 
 			});
@@ -89,13 +97,9 @@
 			for (var i = 0; i < itemsLength; i++) {
 				if (i === randomNumber) {
 					$scope.finalRandomItem = $scope.raffleItems[i];
-					// $scope.raffleItems.push($scope.finalRandomItem);
 					$scope.raffleItems.splice(i, 1);
 					theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 					});
-					
-					// console.log("the normalItems Array ", $scope.normalItems);
-					// console.log("the raffleItems Array ", $scope.raffleItems);
 				}
 			}
 			$log.info("RANDOMIZING!!!!");
@@ -106,27 +110,23 @@
 
 		//The raffle_reset function pops out every item from the raffleItems array. 
 		$scope.raffle_reset = function() {
-			// debugger
 			for (var i = 0; i = $scope.raffleItems.length; i++) {
 				$scope.raffleItems.pop();
 			}
+			
 			var itemsLength = $scope.normalItems.length;
 			for(var i = 0; i < itemsLength; i++) {
-				// if ($scope.raffleItems.indexOf($scope.normalItems[i]) < 0) {
 					$scope.raffleItems.push($scope.normalItems[i]);
-				// };
 			};
+			
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
-				});
+			});
 		};
 
 	
 		$scope.goToInfinity = function() {
 			$state.go("infinity-go");
 		}
-
-
-
 
 
 

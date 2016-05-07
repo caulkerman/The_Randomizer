@@ -23,13 +23,13 @@
 			var categoryNames = theService.sendStoredCategoryInService();
 			if (categoryNames === undefined) {
 				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
-			$state.go("setItUp");
+				$state.go("setItUp");
 			}
+			
 			$scope._id = categoryNames._id
 			$scope.items = categoryNames.items.normalItems;
+			$scope.raffleItems = categoryNames.items.raffleItems;
 			$scope.categoryNameInfinity = categoryNames.name;  //the items array of objects containing itemName and itemShow.
-			// console.log("The stored $scope.items from service ", $scope.items);
-			// console.log("id ", $scope._id);
 		}
 		$scope.getStoredCategoryFromService();
 
@@ -44,16 +44,17 @@
 			}
 			else {
 			var itemsObject = {
-				itemName: itemName,
-				// itemShow: true
+				itemName: itemName
 			};
-			// console.log("the itemsObject ", itemsObject);
-			// console.log("the $scope.items array ", $scope.items);
+			
 			$scope.items.unshift(itemsObject);
-			// console.log("the $scope.items array after unshift ", $scope.items);
 			theService.addAnItem($scope.items, $scope._id).then(function(response) {
-				console.log("the addAnItem response ", response)
 			});
+			
+			$scope.raffleItems.unshift(itemsObject);
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			});
+			
 			$scope.categoryItem = "";
 			$scope.getStoredCategoryFromService();
 			}
@@ -64,10 +65,15 @@
 		//Obviously to splice out the particular item in the items array and get the 
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
+			
 			$scope.items.splice(index, 1);
 			theService.addAnItem($scope.items, $scope._id).then(function(response) {
-				// console.log("delete Item response ", response);
-			})
+			});
+
+			$scope.raffleItems.splice(index, 1);
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			});
+			
 			$scope.getStoredCategoryFromService();
 		}
 
@@ -84,13 +90,10 @@
 			}
 			$log.info("RANDOMIZING!!!!");
 		}
-
-	
+		
 		$scope.goToRaffle = function() {
 			$state.go("raffle-go");
 		}
-
-
 
 
 	}
