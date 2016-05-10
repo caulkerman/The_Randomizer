@@ -83,11 +83,7 @@
 		$scope.infinity_randomize = function() {
 			var itemsLength = $scope.items.length;
 			var randomNumber = Math.floor(Math.random() * itemsLength);
-			for (var i = 0; i < itemsLength; i++) {
-				if (i === randomNumber) {
-					$scope.finalRandomItem = $scope.items[i];
-				}
-			}
+			$scope.finalRandomItem = $scope.items[randomNumber];
 			$log.info("RANDOMIZING!!!!");
 		}
 		

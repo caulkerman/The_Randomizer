@@ -93,15 +93,16 @@
 		$scope.raffle_randomize = function() {
 			
 			var itemsLength = $scope.raffleItems.length;
+			
 			var randomNumber = Math.floor(Math.random() * itemsLength);
-			for (var i = 0; i < itemsLength; i++) {
-				if (i === randomNumber) {
-					$scope.finalRandomItem = $scope.raffleItems[i];
-					$scope.raffleItems.splice(i, 1);
-					theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
-					});
-				}
-			}
+			
+			$scope.finalRandomItem = $scope.raffleItems[randomNumber];
+			
+			$scope.raffleItems.splice(randomNumber, 1);
+			
+			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
+			});
+			
 			$log.info("RANDOMIZING!!!!");
 		};
 
