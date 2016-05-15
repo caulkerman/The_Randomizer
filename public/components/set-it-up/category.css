@@ -62,6 +62,22 @@ button#infinityButton:hover {
 	color: #FFFFFF;
 }
 
+div.button-warning {
+	height: 40px;
+	background-color: pink;
+}
+
+p#button-warning {
+	padding-top: 12px;
+	font-size: .8em;
+	color: red;
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+}
+
 input.category-input {
 	width: 97%;
 	height: 30px;
@@ -142,6 +158,28 @@ button.category-delete:active {
 	background-color: #990000;
 	top: 3px;
 	font-size: 1.6em;
+}
+
+div.deleteCategoryWarning {
+	background-color: pink;
+	/*height: 40px;*/
+}
+
+p#deleteCategoryWarning {
+	padding: 12px 0 10px 0;
+	font-size: .8em;
+	color: red;
+	text-align: center;
+}
+
+button.deleteWarningButton {
+	border: none;
+	background-color: pink;
+}
+
+button.deleteWarningButton:hover {
+	background-color: red;
+	color: #FFFFFF;
 }
 
 

@@ -10,7 +10,15 @@
 		//and that choice will persist as the user goes back and forth between the categories 
 		//and the items.  The choice is saved in the service and called automatically when the categories
 		//page is called again.
+
+		//However, just for a simple user convinience I have decided to set the
+		//infinityButton to true by default so the user can click into a category immediately.
+
+		// $scope.infinityButton = true;
+
+
 		$scope.raffle = function() {
+			$scope.alert = false;
 			var raffleTrue = true;
 			var infinityFalse = false;
 			
@@ -22,6 +30,7 @@
 			// console.log("raffleButton true ", $scope.raffleButton, "infinityButton false ", $scope.infinityButton);
 		}
 		$scope.infinity = function() {
+			$scope.alert = false;
 			var raffleFalse = false;
 			var infinityTrue = true;
 			
@@ -103,6 +112,9 @@
 			}
 			sendCategoryToService();
 			
+			if ($scope.infinityButton === undefined && $scope.raffleButton === undefined) {
+				$scope.alert = true;
+			}
 			if ($scope.infinityButton === true) {
 				$state.go("infinity-go");
 			}
@@ -111,10 +123,20 @@
 			}
 		}
 
-		
+		var confirmDelete;
 		//This is a button on the items list pages that takes us back to the category view.
-		$scope.categoriesShow = function() { 
-			$state.go("setItUp");
+		// $scope.categoriesShow = function() { 
+		// 	$state.go("setItUp");
+		// }
+
+		$scope.deleteOK = function() {
+			$scope.deleteWarning = false;
+			$scope.reallyDeleteIt();
+		}
+
+		$scope.deleteNO = function() {
+			$scope.deleteWarning = false;
+			return;
 		}
 
 		
@@ -122,24 +144,26 @@
 		//Using the ng-repeat's $index we can take that category's index and send 
 		//it off to the database to be deleted.
 		$scope.deleteCategory = function(index) {
-			var confirmDelete = confirm("Deleting will delete this category and ALL of its items!");
-			
-			if (confirmDelete === false) {
-				return
-			} 
-			
-			if (confirmDelete === true) {
+			// var confirmDelete = confirm("Deleting will delete this category and ALL of its items!");
+			$scope.deleteWarning = true;
 			var id = $scope.categories[index]._id;
 			
-			theService.deleteCategory(id).then(function(response) {
-
-				$scope.categories = response.data;
-			});
-			
-			$scope.getCategories();
-			
-			};
+			$scope.reallyDeleteIt = function() {
+				theService.deleteCategory(id).then(function(response) {
+					$scope.categories = response.data;
+				});
+				$scope.getCategories();
+				console.log($scope);
+			}
 		};
+		
+
+
+
+
+
+
+
 
 
 	}

@@ -9,6 +9,10 @@
 		<button class="select-button" id="raffleButton" ng-model="raffleButton" ng-click="raffle()" rw-button-colors>Raffle Randomizer</button>
 		<button class="select-button" id="infinityButton" ng-model="infinityButton" ng-click="infinity()" rw-button-colors>Infinity Randomizer</button>
 	</div>
+
+	<div class="button-warning clear" ng-show="alert">
+		<p id="button-warning">You must choose either Raffle Randomizer or Infinity Randomizer!</p>
+	</div>
 	
 	<div class="form-div">
 		<form>
@@ -16,6 +20,12 @@
 		</form>
 	</div>
 	
+	<div class="deleteCategoryWarning" ng-show="deleteWarning">
+		<p id="deleteCategoryWarning">Are you sure you want to delete this category? Clicking OK will delete the category and all of its items contents!</p>
+		<button class="deleteWarningButton" ng-click="deleteOK()">OK</button>
+		<button class="deleteWarningButton" ng-click="deleteNO()">CANCEL</button>
+	</div>
+
 	<h2 class="category-name">Categories</h2>
 	
 	<div class="category-table-div">

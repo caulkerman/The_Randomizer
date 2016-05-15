@@ -15,7 +15,6 @@ app.directive("rwButtonColors", function() {
 				});
 				
 				$("button#infinityButton")
-				
 				.css({"color": "#333333",
 					"font-size": ".8em",
 					"padding": "4px 10px 0 10px",

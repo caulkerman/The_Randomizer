@@ -164,9 +164,9 @@ button#raffle-go-button:active {
 button#refresh-button {
 	height: 30px;
 	background-color: #FFFFFF;
-	-webkit-border-radius: 2px;
+	/*-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-	border-radius: 2px;
+	border-radius: 2px;*/
 	border: none;
 	margin: 35px 0 10px 0;
 	float: right;
