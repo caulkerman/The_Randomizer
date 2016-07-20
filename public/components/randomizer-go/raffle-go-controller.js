@@ -34,7 +34,7 @@
 			}
 			
 			$scope.categoryNameRaffle = categoryNames.name;
-			console.log("The Names object from service ", $scope.categoryNameRaffle);
+			// console.log("The Names object from service ", $scope.categoryNameRaffle);
 			$scope._id = categoryNames._id
 			$scope.normalItems = categoryNames.items.normalItems;
 			$scope.raffleItems = categoryNames.items.raffleItems;

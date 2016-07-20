@@ -62,7 +62,7 @@
 		//The getCategories function calls to the database to retrieve any documents in the collection.
 		$scope.getCategories = function() {
 			theService.getCategories().then(function(response) {
-				console.log("In controller, response from GET functions = ", response.data);
+				// console.log("In controller, response from GET functions = ", response.data);
 				if(response.status === 200) {
 					$scope.categories = response.data;
 				} else {
@@ -153,7 +153,6 @@
 					$scope.categories = response.data;
 				});
 				$scope.getCategories();
-				console.log($scope);
 			}
 		};
 		
