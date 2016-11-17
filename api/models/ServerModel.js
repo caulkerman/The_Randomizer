@@ -1,10 +1,5 @@
 var mongoose = require('mongoose');
 
-// var items = {
-// 	normalItems: { type: Array },
-// 	raffleItems: { type: Array }
-// }
-
 var RandomSchema = mongoose.Schema ({
   
   	name: { type: String },
