@@ -73,7 +73,6 @@ app.directive("rwButtonColors", function() {
 					"background-color": "#FFFFFF"
 				});
 			};
-		
 		}
 	};
 });

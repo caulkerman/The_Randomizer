@@ -14,11 +14,11 @@
 	
 	<div>
 		<form class="items-input-form ng-cloak">
-			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
+			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
 		</form>
 
 		<div class="random_item_result_div ng-cloak">
-			<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
+			<p id="random_item_result" class="ng-cloak">{{finalRandomItem}}</p>
 		</div>
 		
 		<div class="go_button_div ng-cloak">
@@ -30,8 +30,8 @@
 		
 		<div class="item-table-div ng-cloak">
 			<table>
-				<tr ng-repeat="item in items track by $index">
-					<td class="infinity-item-table-column">{{item.itemName}}</td>
+				<tr ng-repeat="item in infinityItems track by $index">
+					<td class="infinity-item-table-column">{{item}}</td>
 					<td>
 						<button class="infinity-items-delete" ng-click="deleteItem($index)">X</button>
 					</td>

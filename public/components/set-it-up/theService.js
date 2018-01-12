@@ -1,9 +1,9 @@
 app.service("theService", ["$http", "$q", function($http, $q) {
-
+"use strict";
 
 var storedCategory;
 var categoryObject = {};
-var trueOrFalseObject = {}
+var trueOrFalseObject = {};
 
 
 //postCategoryObject function posts the categoryObject object to the database.
@@ -38,13 +38,29 @@ this.getCategories = function() {
 
 
 
+
+this.getTheCategoryFromDBbyId = function(id) {
+	 var deferred = $q.defer();
+	 $http({
+	 	method: "GET",
+	 	url: "/api/getCategory/" + id
+	 }).then(function(response) {
+		 // jobsite = response.data;
+	 	deferred.resolve(response);
+	 });
+	 return deferred.promise;
+	};
+
+
+
 //The addAnItem serves to PUT new items onto the categoryObject during update.  
 //This function is also used in the app whenever an update is needed.
-this.addAnItem = function(itemName, id) {
+this.updateInfinityItemsArray = function(itemName, id) {
+	console.log("In the service: ", itemName, id);
 	var deferred = $q.defer();
 	$http({
 		method: "PUT",
-		url: '/api/subject-items-Lists/' + id,
+		url: '/api/infinity-items-Lists/' + id,
 		data: itemName
 	}).then(function(response) {
 		deferred.resolve(response);
@@ -86,6 +102,7 @@ this.deleteCategory = function(id) {
 //object and store it in the storedCategory variable defined at the top.  The purpose is to transfer 
 //the object from one controller to another.
 this.storeCategoryInService = function(category) {
+	console.log("the storedCategory in theService: ", storedCategory);
 	storedCategory = category;
 };
 this.sendStoredCategoryInService = function() {
@@ -98,24 +115,15 @@ this.sendStoredCategoryInService = function() {
 //or infinity style randomizer and returns it to the controller so they can stay either raffle or infinity
 //as they use the app.
 this.trueOrFalse = function(param1, param2) {
-	trueOrFalseObject._param1 = param1,
-	trueOrFalseObject._param2 = param2
-}
+	trueOrFalseObject._param1 = param1;
+	trueOrFalseObject._param2 = param2;
+};
 
 this.returnTrueOrFalseObject = function() {
 	return trueOrFalseObject;
-}
+};
 
 
 
-
-
-
-
-
-
-
-
-
-
+///////End of Service\\\\\\\
 }]);

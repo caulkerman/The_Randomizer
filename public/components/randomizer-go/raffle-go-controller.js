@@ -1,4 +1,5 @@
 (function() {
+	"use strict"
 	var $inject = ["$scope", "$log", "$state", "$stateParams", "theService"];
 	function raffleGoControllerCB($scope, $log, $state, $stateParams, theService) {
 
@@ -6,39 +7,30 @@
 			// ADD CONTROLLER JAVASCRIPT HERE //
 
 
+		var id = $stateParams.id;//at this point we need to call to the DB to get THE object.
+
 
 		//The categoriesShow function is a button that takes the user back to the categories page.
 		$scope.categoriesShow = function() {
 			$state.go("setItUp");
-		}
+		};
 
 
 
-		//The getStoredCategoryInService function calls to the service to retrieve the specific 
-		//category object saved there, the specific object is not retrieved from the database 
-		//but from the service.  If the user refreshes the page all $scope variables are 
-		//undefined so I send the user back to the category page so the category data can be 
-		//sent through the service again and the page not get stuck in error mode because the ._id
-		//or name property is undefined.  
 
-		//One way, perhaps, that I could have avoided this is to send the properties
-		//of the categories object through to another controller via routing in app.js using 
-		//$stateParams by adding the category properties to the $stateParams.  Although I get 
-		//an error in the console, and I have to re-rout back to the categories page, I want 
-		//the entire object intact.
 		$scope.getStoredCategoryInService = function() {
-			var categoryNames = theService.sendStoredCategoryInService();
-			if (categoryNames === undefined) {
-				$log.warn("This page cannot be refreshed, RETURNING TO CATEGORIES PAGE")
-				$state.go("setItUp");
-			}
-			
-			$scope.categoryNameRaffle = categoryNames.name;
-			// console.log("The Names object from service ", $scope.categoryNameRaffle);
-			$scope._id = categoryNames._id
-			$scope.normalItems = categoryNames.items.normalItems;
-			$scope.raffleItems = categoryNames.items.raffleItems;
-		}
+
+			theService.getTheCategoryFromDBbyId(id).then(function(response) {
+				
+				var categoryNames = response.data;
+				console.log(categoryNames);
+				$scope.categoryNameRaffle = categoryNames.name;
+				$scope._id = categoryNames._id;
+				$scope.infinityItems = categoryNames.items.infinityItems;
+				$scope.raffleItems = categoryNames.items.raffleItems;
+				console.log("raffleItems: ", $scope.raffleItems);
+			});
+		};
 		$scope.getStoredCategoryInService();
 
 
@@ -51,14 +43,11 @@
 				return;
 			}
 			else {
-			var itemsObject = {
-				itemName: itemName
-			};
 			
-			$scope.normalItems.unshift(itemsObject);
-			$scope.raffleItems.unshift(itemsObject);
+			$scope.infinityItems.unshift(itemName);
+			$scope.raffleItems.unshift(itemName);
 			
-			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+			theService.updateInfinityItemsArray($scope.infinityItems, $scope._id).then(function(response) {
 			});
 			
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
@@ -75,8 +64,8 @@
 		//object updated in the database.
 		$scope.deleteItem = function(index) {
 			
-			$scope.normalItems.splice(index, 1);
-			theService.addAnItem($scope.normalItems, $scope._id).then(function(response) {
+			$scope.infinityItems.splice(index, 1);
+			theService.updateInfinityItemsArray($scope.infinityItems, $scope._id).then(function(response) {
 			});
 
 			$scope.raffleItems.splice(index, 1);
@@ -84,25 +73,19 @@
 
 			});
 			$scope.getStoredCategoryInService();
-		}
+		};
 
 
 		
 		//The raffle_randomize function uses Math.random and a for loop to choose an item name at random
 		//from the raffleItems array.  As the array is changed the change is updated in the database.
 		$scope.raffle_randomize = function() {
-			
 			var itemsLength = $scope.raffleItems.length;
-			
 			var randomNumber = Math.floor(Math.random() * itemsLength);
-			
 			$scope.finalRandomItem = $scope.raffleItems[randomNumber];
-			
 			$scope.raffleItems.splice(randomNumber, 1);
-			
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 			});
-			
 			$log.info("RANDOMIZING!!!!");
 		};
 
@@ -111,14 +94,14 @@
 
 		//The raffle_reset function pops out every item from the raffleItems array. 
 		$scope.raffle_reset = function() {
-			for (var i = 0; i = $scope.raffleItems.length; i++) {
+			for (let i = 0; i = $scope.raffleItems.length; i++) {
 				$scope.raffleItems.pop();
 			}
 			
-			var itemsLength = $scope.normalItems.length;
-			for(var i = 0; i < itemsLength; i++) {
-					$scope.raffleItems.push($scope.normalItems[i]);
-			};
+			var itemsLength = $scope.infinityItems.length;
+			for(let i = 0; i < itemsLength; i++) {
+					$scope.raffleItems.push($scope.infinityItems[i]);
+			}
 			
 			theService.updateRaffleItemsArray($scope.raffleItems, $scope._id).then(function(response) {
 			});
@@ -126,11 +109,11 @@
 
 	
 		$scope.goToInfinity = function() {
-			$state.go("infinity-go");
-		}
+			$state.go("infinity-go", {id: id});
+		};
+	
 
-
-
+			//////End of Controller Code\\\\\
 	}
 	raffleGoControllerCB.$inject = $inject;
 	app.controller("raffleGoController", raffleGoControllerCB);

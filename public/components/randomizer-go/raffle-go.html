@@ -14,12 +14,12 @@
 	
 	<div class="form-div">
 		<form class="items-input-form">
-			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)" auto-focus>
+			<input class="items-input" type="text" ng-model="categoryItem" ng-keydown="$event.which === 13 && addAnItem(categoryItem)">
 		</form>
 	</div>
 
 	<div class="random_item_result_div ng-cloak">
-		<p id="random_item_result" class="ng-cloak">{{finalRandomItem.itemName}}</p>
+		<p id="random_item_result" class="ng-cloak">{{finalRandomItem}}</p>
 	</div>
 
 	<div class="go_button_div">
@@ -32,7 +32,7 @@
 	<div class="item-table-div">
 		<table>
 			<tr ng-repeat="item in raffleItems track by $index">
-				<td class="raffle-item-table-column">{{item.itemName}}</td>
+				<td class="raffle-item-table-column">{{item}}</td>
 				<td>
 					<button class="raffle-items-delete" ng-click="deleteItem($index)">X</button>
 				</td>

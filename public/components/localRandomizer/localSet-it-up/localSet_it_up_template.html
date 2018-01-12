@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="components/set-it-up/category.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <header class="category-header">
 	<h1 class="category_h1">The Randomizer</h1>
 </header>
 
-
+{{test}}
 <div id="categories" class="ng-cloak">
 	
 	<div id="button-container" class="ng-cloak">
@@ -12,8 +11,9 @@
 		<button class="select-button" id="infinityButton" ng-model="infinityButton" ng-click="infinity()" rw-button-colors>Infinity Randomizer</button>
 	</div>
 
+	<!-- Make this span that has these links turn into a nice looking nav bar -->
 	<div class="button-container">
-		<button ng-click="goToLocal()" id="goToGlobal">Private Randomizer</button>
+		<button ng-click="goToGlobal()" id="goToGlobal">Public Randomizer</button>
 	</div>
 	
 	<div class="form-div">
@@ -33,9 +33,8 @@
 	<div class="category-table-div">
 		<table ng-repeat="category in categories track by $index">
 			<tr>
-				<td class="category_table_column" ng-click="selectCategory($index, category.name, category._id, category.items, category)">{{category.name}}</td>
+				<td class="category_table_column" ng-click="selectCategory(category._id)">{{category.name}}</td>
 				<td class="category_table_column_button"><button class="category-delete" ng-click="deleteCategory($index)">X</button></td>
-				<td class="category_table_column_button"><button class="category-delete arrow-down" ng-click="downloadCategory(category._id)"><i class="fa fa-download fa-1x" aria-hidden="true"></i></button></td>
 			</tr>
 		</table>
 	</div>

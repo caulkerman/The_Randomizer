@@ -13,7 +13,6 @@ module.exports = {
   },
 
   
-
   read: function(req, res) {
     Random.find(req.query)
     .exec(function(err, result) {
@@ -22,16 +21,28 @@ module.exports = {
     });
   },
 
+
+
+
+getOneCategory: function(req, res) {
+  Random.findOne({_id: req.params.id })
+    .exec(function(err, result) {
+      if (err) return res.status(500).send(err);
+      else res.send(result);
+    });
+},
+
   
 
-  normalItemsUpdate: function(req, res) {
+  infinityItemsUpdate: function(req, res) {
     console.log("update function in api controller, req ", req.body);
-    Random.findByIdAndUpdate(req.params.id, {"items.normalItems": req.body},  { "new": true }, function(err, result) {
+    Random.findByIdAndUpdate(req.params.id, {"items.infinityItems": req.body},  { "new": true }, function(err, result) {
       if (err) return res.status(500).send(err);
       else res.send(result);
     });
     console.log("the res.body ", res.body);
   },
+
 
   
 
@@ -43,17 +54,6 @@ module.exports = {
     });
     console.log("the res.body ", res.body);
   },
-
-
-//This function only if I want the raffleNormalItems array updated.
-  // raffleNormalItemsUpdate: function(req, res) {
-  //   console.log("update function in api controller, req ", req.body);
-  //   Random.findByIdAndUpdate(req.params.id, {"items.raffleNormalItems": req.body},  { "new": true }, function(err, result) {
-  //     if (err) return res.status(500).send(err);
-  //     else res.send(result);
-  //   });
-  //   console.log("the res.body ", res.body);
-  // },
 
   
 
