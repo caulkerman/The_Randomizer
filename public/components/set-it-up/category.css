@@ -203,6 +203,11 @@ button.deleteWarningButton:hover {
 	color: #FFFFFF;
 }
 
+div#nothing-there {
+	margin: 15px 0 15px 0;
+	color: red;
+}
+
 
 				/*SMARTPHONE SIZE SCREENS*/
 @media only screen and (min-width: 15em) and (max-width: 30em) {

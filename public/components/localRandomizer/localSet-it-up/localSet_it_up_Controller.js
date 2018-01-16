@@ -71,7 +71,10 @@
 		// };
 		// $scope.getCategories();
 		$scope.getCategories = () => {
-			$scope.categories = localService.getCategories()
+			$scope.categories = localService.getCategories();
+			if ($scope.categories === undefined || $scope.categories.length < 1) {
+				$scope.nothingThere = true;
+			}
 				
 				console.log("$scope.categories: ", $scope.categories);
 		};
@@ -93,6 +96,7 @@
 			}
 			$scope.categoryName = "";
 			$scope.getCategories();
+			$scope.nothingThere = false;
 		};
 
 

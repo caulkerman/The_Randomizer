@@ -15,7 +15,9 @@
 	<div class="button-container">
 		<button ng-click="goToGlobal()" id="goToGlobal">Public Randomizer</button>
 	</div>
-	
+	<div ng-show="nothingThere" id="nothing-there">
+		Oops!  Looks like you don't have anything saved yet. Let's get started!
+	</div>
 	<div class="form-div">
 		<form>
 			<input type="text"  class="category-input" ng-model="categoryName" ng-keydown="$event.which === 13 && addACategory(categoryName)">
